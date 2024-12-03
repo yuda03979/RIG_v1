@@ -14,6 +14,7 @@ class Globals:
         self.db_path = data_directory + db_file_name
         self.db_manager = None  # temporarily
 
+        self.rag_difference = 0.3
         self.rag_threshold = 0.5
         self.max_context_length = 1024
         self.n_threads = os.cpu_count() - 2 if os.cpu_count() - 2 > 1 else 1

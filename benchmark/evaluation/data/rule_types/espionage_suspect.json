@@ -1,0 +1,274 @@
+    {
+    "logicType": "structured",
+    "structuredlogic": {
+      "id": "root",
+      "expressionType": null,
+      "freeText": null,
+      "expressionGroup": null,
+      "expressionOperand": "None",
+      "leftStatment": null,
+      "rightStatment": null,
+      "groupType": "And",
+      "expressions": [
+        {
+          "id": "root.1",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Suspect",
+              "field": "suspectID",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "suspectID",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.2",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Suspect",
+              "field": "espionageMethod",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "espionageMethod",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.3",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "greaterThanOrEqual",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Suspect",
+              "field": "suspicionLevel",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "suspicionLevel",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.4",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Suspect",
+              "field": "countryOfAllegiance",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "countryOfAllegiance",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.5",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Suspect",
+              "field": "suspiciousActivity",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "suspiciousActivity",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        }
+      ]
+    },
+    "textualLogic": null,
+    "children": [],
+    "additionalInformation": {},
+    "alertDistributionType": "regular",
+    "_id": "7f2edcbf-c5e7-4bdf-977e-fbcda9159b01",
+    "name": "Espionage Suspect",
+    "lastUpdateTime": "11/27/2024 22:00:00",
+    "description": "",
+    "parameters": [
+      {
+        "name": "suspectID",
+        "type": "String",
+        "defaultValue": "",
+        "description": "",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "espionageMethod",
+        "type": "String",
+        "defaultValue": "",
+        "description": "The method suspected to be used for espionage, such as 'Surveillance', 'Data Theft', or 'Sabotage'.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "suspicionLevel",
+        "type": "String",
+        "defaultValue": "",
+        "description": "The level of suspicion regarding the suspect's involvement in espionage, measured on a scale from 'Low' to 'High'.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "countryOfAllegiance",
+        "type": "String",
+        "defaultValue": "",
+        "description": "",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "suspiciousActivity",
+        "type": "String",
+        "defaultValue": "",
+        "description": "A brief description of the suspicious activity that triggered the suspicion, such as 'Unusual Travel Patterns', 'Unauthorized Access to Restricted Areas', or 'Frequent Communication with Foreign Agents'.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      }
+    ],
+    "eventDetails": [
+      {
+        "objectName": "Suspect",
+        "objectDescription": null,
+        "timeWindowInMilliseconds": 0,
+        "useLatest": false
+      }
+    ]
+  }
+  

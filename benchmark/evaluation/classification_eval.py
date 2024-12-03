@@ -4,15 +4,16 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
-csv_path = "data/classification_data_yosef.csv"
+csv_path = "data_shucki/data.csv"
 df = pl.read_csv(csv_path)
 
 rig = RuleInstanceGenerator()
 
+
 def clean_text(text):
     """Remove all non-alphanumeric characters and convert to lowercase."""
     return ''.join(char.lower() for char in text if char.isalnum())
+
 
 def evaluate_accuracy():
     rag_api = rig.get_instance.classifier.rag_api
@@ -58,6 +59,7 @@ def evaluate_accuracy():
 
     return results_df, accuracy
 
+
 # Run the evaluation
 results_df, final_score = evaluate_accuracy()
 
@@ -94,7 +96,6 @@ confusion_matrix = pd.crosstab(
     results_df["predicted"],
     # normalize='index'
 )
-
 
 plt.figure(figsize=(20, 20))
 sns.heatmap(

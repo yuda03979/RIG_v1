@@ -7,11 +7,14 @@ from RIG.src.App.rule_instance.get import Get
 from RIG.src.App.new_type import NewType
 from RIG.src.Utils.utils import log_interactions
 
+from RIG.src.Utils.rag_api import RagApi
+from RIG.src.Utils.gemma_api import GemmaApi
 
 
-def set_globals(data_directory, db_file_name, rag_threshold, max_context_length, max_new_tokens, n_threads):
+def set_globals(data_directory, db_file_name, rag_difference, rag_threshold, max_context_length, max_new_tokens, n_threads):
     GLOBALS.db_manager = DBManager(data_directory + db_file_name)
     GLOBALS.models_directory = data_directory
+    GLOBALS.rag_difference = rag_difference
     GLOBALS.rag_threshold = rag_threshold
     GLOBALS.max_context_length = max_context_length
     GLOBALS.max_new_tokens = max_new_tokens
@@ -23,15 +26,19 @@ class RuleInstanceGenerator:
     def __init__(self,
                  data_directory=GLOBALS.models_directory,
                  db_file_name=GLOBALS.db_file_name,
+                 rag_difference=GLOBALS.rag_difference,
                  rag_threshold=GLOBALS.rag_threshold,
                  max_context_length=GLOBALS.max_context_length,
                  max_new_tokens=GLOBALS.max_new_tokens,
-                 n_threads=GLOBALS.n_threads):
+                 n_threads=GLOBALS.n_threads,
+                 ):
 
-        set_globals(data_directory, db_file_name, rag_threshold, max_context_length, max_new_tokens, n_threads)
+        set_globals(data_directory, db_file_name, rag_difference, rag_threshold, max_context_length, max_new_tokens, n_threads)
         self.globals = GLOBALS
-        self.get_instance = Get()
-        self.new_type = NewType(rag_api=self.get_instance.classifier.rag_api)
+        self.gemma_api = GemmaApi()
+        self.rag_api = RagApi()
+        self.get_instance = Get(rag_api=self.rag_api, gemma_api=self.gemma_api)
+        self.new_type = NewType(rag_api=self.rag_api)
 
     def new_rule_type(self, rule_type) -> bool:
         """
@@ -90,7 +97,7 @@ class RuleInstanceGenerator:
             response["error_message"] = f"please enter meaningful text"
 
         current_time = datetime.now()
-        response["time"] = f"{current_time.strftime('%Y-%m-%d')}--{current_time.strftime('%H:%M:%S')}"
+        response["time"] = f"{current_time.strftime('%Y-%m-%d')}|{current_time.strftime('%H:%M:%S')}"
         response["inference_time"] = time.time() - start_time
         log_interactions(response)
         return response

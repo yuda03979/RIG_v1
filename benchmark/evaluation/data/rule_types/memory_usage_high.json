@@ -1,0 +1,273 @@
+{
+    "logicType": "structured",
+    "structuredlogic": {
+      "id": "root",
+      "expressionType": null,
+      "freeText": null,
+      "expressionGroup": null,
+      "expressionOperand": "None",
+      "leftStatment": null,
+      "rightStatment": null,
+      "groupType": "And",
+      "expressions": [
+        {
+          "id": "root.1",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "greater",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Memory",
+              "field": "used_memory",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "int32",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "threshold",
+              "valueType": "Int",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.2",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "greater",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Memory",
+              "field": "total_memory",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "int32",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "total_memory",
+              "valueType": "Int",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.3",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Memory",
+              "field": "memory_type",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "memory_type",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.4",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Memory",
+              "field": "process_id",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "int32",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "process_id",
+              "valueType": "Int",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.5",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "less",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Memory",
+              "field": "threshold",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "int32",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "80",
+              "valueType": "Int",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        }
+      ]
+    },
+    "textualLogic": null,
+    "children": [],
+    "additionalInformation": {},
+    "alertDistributionType": "regular",
+    "_id": "fb8e8ef1-e382-43b5-b896-70d254878752",
+    "name": "Memory Usage Alert",
+    "lastUpdateTime": "09/16/2024 12:28:31",
+    "description": "",
+    "parameters": [
+      {
+        "name": "total_memory",
+        "type": "Int",
+        "defaultValue": "",
+        "description": "The total memory available for use on the system.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "used_memory",
+        "type": "Int",
+        "defaultValue": "",
+        "description": "The amount of memory currently used by the system.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "memory_type",
+        "type": "String",
+        "defaultValue": "",
+        "description": "The type of memory used (e.g., RAM, virtual memory).",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "process_id",
+        "type": "Int",
+        "defaultValue": "",
+        "description": "The ID of the process consuming memory.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "threshold",
+        "type": "Int",
+        "defaultValue": "",
+        "description": "The threshold percentage value for used memory.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      }
+    ],
+    "eventDetails": [
+      {
+        "objectName": "Memory",
+        "objectDescription": null,
+        "timeWindowInMilliseconds": 0,
+        "useLatest": false
+      }
+    ]
+  }

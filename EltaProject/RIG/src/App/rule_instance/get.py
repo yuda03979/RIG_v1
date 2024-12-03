@@ -9,9 +9,9 @@ from RIG.globals import GLOBALS
 
 class Get:
 
-    def __init__(self):
-        self.classifier = Classification()
-        self.generator = Generation()
+    def __init__(self, rag_api, gemma_api):
+        self.classifier = Classification(rag_api, gemma_api)
+        self.generator = Generation(gemma_api)
 
     def predict(self, free_text):
 

@@ -45,16 +45,16 @@ class RagApi:
         """
         query_embedding = self.rag_model.get_embedding(text=query)
 
-        closest_type_name = None
-        closest_distance = -float("inf")
+        types_names_resault = {k: -float("inf") for k in self.rule_types_embedding.keys()}
 
         for type_name in self.rule_types_embedding.keys():
-            embedding = self.rule_types_embedding[type_name]  # Converts the tensor into a 1D vector
+            embedding = self.rule_types_embedding[type_name]
             distance = query_embedding @ embedding.T
-            if distance > closest_distance:
-                closest_distance = distance
-                closest_type_name = type_name
+            types_names_resault[type_name] = distance
 
-        if closest_distance < GLOBALS.rag_threshold:
-            closest_type_name = None
-        return closest_type_name, closest_distance
+        types_names_resault_list = sorted(types_names_resault.items(), key=lambda item: item[1], reverse=True)
+
+        types_names_resault_list.append(('None', 0))
+        types_names_resault_list.append(('None', -float('inf')))
+
+        return types_names_resault_list[:2]

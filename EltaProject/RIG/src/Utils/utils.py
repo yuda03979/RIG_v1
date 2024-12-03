@@ -10,12 +10,6 @@ from RIG.globals import GLOBALS
 
 
 
-def normalize_empty_value(value):
-    """Normalize empty values to a common representation."""
-    if value in [None, "", "null", "None", "none", "empty"]:
-        return "null"  # Choose a common representation for empty values
-    return value
-
 
 def get_dict(input_string):
     # Use regex to find content between { and } that looks like a valid JSON
@@ -34,8 +28,10 @@ def get_dict(input_string):
         # If standard parsing fails, try some custom parsing
         try:
             # Replace 'null' strings with actual None
-            json_str = json_str.replace('"null"', 'null')
-
+            json_str = json_str.replace("'", '"')
+            json_str = json_str.replace('null', '"null"')
+            json_str = json_str.replace('None', '"null"')
+            json_str = json_str.replace('"None"', '"null"')
             # Use ast for more flexible parsing
             import ast
             parsed_dict = ast.literal_eval(json_str)

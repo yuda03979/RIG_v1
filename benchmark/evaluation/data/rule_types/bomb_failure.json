@@ -1,0 +1,322 @@
+{
+    "logicType": "structured",
+    "structuredlogic": {
+      "id": "root",
+      "expressionType": null,
+      "freeText": null,
+      "expressionGroup": null,
+      "expressionOperand": "None",
+      "leftStatment": null,
+      "rightStatment": null,
+      "groupType": "And",
+      "expressions": [
+        {
+          "id": "root.1",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Bomb",
+              "field": "bombID",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "bombID",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.2",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Bomb",
+              "field": "failureType",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "failureType",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.3",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "greaterOrEqual",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Bomb",
+              "field": "failureSeverity",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "int32",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "failureSeverity",
+              "valueType": "Int",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.4",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "beforeOrEqual",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Bomb",
+              "field": "detectionTime",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "detectionTime",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.5",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Bomb",
+              "field": "location",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "location",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.6",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Bomb",
+              "field": "triggerType",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "triggerType",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        }
+      ]
+    },
+    "textualLogic": null,
+    "children": [],
+    "additionalInformation": {},
+    "alertDistributionType": "regular",
+    "_id": "fb8e8ef1-e382-43b5-b896-70d254878751",
+    "name": "Bomb Failure",
+    "lastUpdateTime": "11/27/2024 21:00:00",
+    "description": "",
+    "parameters": [
+      {
+        "name": "bombID",
+        "type": "String",
+        "defaultValue": "",
+        "description": "",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "failureType",
+        "type": "String",
+        "defaultValue": "",
+        "description": "",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "failureSeverity",
+        "type": "Int",
+        "defaultValue": "",
+        "description": "Severity level of the failure. The value should be a number representing how critical the failure is on a scale from 1 (minor) to 10 (severe).",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "detectionTime",
+        "type": "String",
+        "defaultValue": "",
+        "description": "Date and time when the failure was detected. Expected format is 'YYYY-MM-DDTHH:MM:SSZ', e.g., '2024-11-27T21:00:00Z'.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "location",
+        "type": "String",
+        "defaultValue": "",
+        "description": "",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "triggerType",
+        "type": "String",
+        "defaultValue": "",
+        "description": "",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      }
+    ],
+    "eventDetails": [
+      {
+        "objectName": "Bomb",
+        "objectDescription": null,
+        "timeWindowInMilliseconds": 0,
+        "useLatest": false
+      }
+    ]
+  }
+  
