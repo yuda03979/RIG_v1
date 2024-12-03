@@ -1,0 +1,274 @@
+{
+  "logicType": "structured",
+  "structuredlogic": {
+    "id": "root",
+    "expressionType": null,
+    "freeText": null,
+    "expressionGroup": null,
+    "expressionOperand": "None",
+    "leftStatment": null,
+    "rightStatment": null,
+    "groupType": "And",
+    "expressions": [
+      {
+        "id": "root.1",
+        "expressionType": {
+          "leftOption": "basic",
+          "rightOption": "parameterValue"
+        },
+        "freeText": null,
+        "expressionGroup": null,
+        "expressionOperand": "greater",
+        "leftStatment": [
+          {
+            "atomType": "property",
+            "objectName": "Person",
+            "field": "age",
+            "fieldType": null,
+            "isInputObject": true,
+            "value": null,
+            "valueType": "int32",
+            "operandType": null,
+            "functionType": null
+          }
+        ],
+        "rightStatment": [
+          {
+            "atomType": "parameterValue",
+            "objectName": null,
+            "field": null,
+            "fieldType": null,
+            "isInputObject": false,
+            "value": "age",
+            "valueType": "Int",
+            "operandType": null,
+            "functionType": null
+          }
+        ],
+        "groupType": "None",
+        "expressions": null
+      },
+      {
+        "id": "root.2",
+        "expressionType": {
+          "leftOption": "basic",
+          "rightOption": "parameterValue"
+        },
+        "freeText": null,
+        "expressionGroup": null,
+        "expressionOperand": "equal",
+        "leftStatment": [
+          {
+            "atomType": "property",
+            "objectName": "Person",
+            "field": "gender",
+            "fieldType": null,
+            "isInputObject": true,
+            "value": null,
+            "valueType": "string",
+            "operandType": null,
+            "functionType": null
+          }
+        ],
+        "rightStatment": [
+          {
+            "atomType": "parameterValue",
+            "objectName": null,
+            "field": null,
+            "fieldType": null,
+            "isInputObject": false,
+            "value": "gender",
+            "valueType": "String",
+            "operandType": null,
+            "functionType": null
+          }
+        ],
+        "groupType": "None",
+        "expressions": null
+      },
+      {
+        "id": "root.3",
+        "expressionType": {
+          "leftOption": "basic",
+          "rightOption": "parameterValue"
+        },
+        "freeText": null,
+        "expressionGroup": null,
+        "expressionOperand": "greaterOrEqual",
+        "leftStatment": [
+          {
+            "atomType": "property",
+            "objectName": "Person",
+            "field": "historyRecord",
+            "fieldType": null,
+            "isInputObject": true,
+            "value": null,
+            "valueType": "int32",
+            "operandType": null,
+            "functionType": null
+          }
+        ],
+        "rightStatment": [
+          {
+            "atomType": "parameterValue",
+            "objectName": null,
+            "field": null,
+            "fieldType": null,
+            "isInputObject": false,
+            "value": "historyRecord",
+            "valueType": "Int",
+            "operandType": null,
+            "functionType": null
+          }
+        ],
+        "groupType": "None",
+        "expressions": null
+      },
+      {
+        "id": "root.4",
+        "expressionType": {
+          "leftOption": "basic",
+          "rightOption": "parameterValue"
+        },
+        "freeText": null,
+        "expressionGroup": null,
+        "expressionOperand": "equal",
+        "leftStatment": [
+          {
+            "atomType": "property",
+            "objectName": "Person",
+            "field": "address",
+            "fieldType": null,
+            "isInputObject": true,
+            "value": null,
+            "valueType": "string",
+            "operandType": null,
+            "functionType": null
+          }
+        ],
+        "rightStatment": [
+          {
+            "atomType": "parameterValue",
+            "objectName": null,
+            "field": null,
+            "fieldType": null,
+            "isInputObject": false,
+            "value": "address",
+            "valueType": "String",
+            "operandType": null,
+            "functionType": null
+          }
+        ],
+        "groupType": "None",
+        "expressions": null
+      },
+      {
+        "id": "root.5",
+        "expressionType": {
+          "leftOption": "basic",
+          "rightOption": "parameterValue"
+        },
+        "freeText": null,
+        "expressionGroup": null,
+        "expressionOperand": "equal",
+        "leftStatment": [
+          {
+            "atomType": "property",
+            "objectName": "Person",
+            "field": "organization",
+            "fieldType": null,
+            "isInputObject": true,
+            "value": null,
+            "valueType": "string",
+            "operandType": null,
+            "functionType": null
+          }
+        ],
+        "rightStatment": [
+          {
+            "atomType": "parameterValue",
+            "objectName": null,
+            "field": null,
+            "fieldType": null,
+            "isInputObject": false,
+            "value": "organization",
+            "valueType": "String",
+            "operandType": null,
+            "functionType": null
+          }
+        ],
+        "groupType": "None",
+        "expressions": null
+      }
+    ]
+  },
+  "textualLogic": null,
+  "children": [],
+  "additionalInformation": {},
+  "alertDistributionType": "regular",
+  "_id": "361c26cb-b6e7-4035-8b48-1edd57c0c3e5",
+  "name": "Suspected Person",
+  "lastUpdateTime": "09/16/2024 09:57:14",
+  "description": "",
+  "parameters": [
+    {
+      "name": "age",
+      "type": "Int",
+      "defaultValue": "",
+      "description": "The age of the person under observation.",
+      "displayName": "",
+      "repositoryName": "",
+      "mandatory": false,
+      "selectableValue": []
+    },
+    {
+      "name": "gender",
+      "type": "String",
+      "defaultValue": "",
+      "description": "The gender of the person under observation, e.g., male or female.",
+      "displayName": "",
+      "repositoryName": "",
+      "mandatory": false,
+      "selectableValue": []
+    },
+    {
+      "name": "historyRecord",
+      "type": "Int",
+      "defaultValue": "",
+      "description": "The number of past incidents or activities linked to the person.",
+      "displayName": "",
+      "repositoryName": "",
+      "mandatory": false,
+      "selectableValue": []
+    },
+    {
+      "name": "organization",
+      "type": "String",
+      "defaultValue": "",
+      "description": "The organization with which the person is affiliated, if any.",
+      "displayName": "",
+      "repositoryName": "",
+      "mandatory": false,
+      "selectableValue": []
+    },
+    {
+      "name": "address",
+      "type": "String",
+      "defaultValue": "",
+      "description": "The address or location associated with the person.",
+      "displayName": "",
+      "repositoryName": "",
+      "mandatory": false,
+      "selectableValue": []
+    }
+  ],
+
+  "eventDetails": [
+    {
+      "objectName": "Person",
+      "objectDescription": null,
+      "timeWindowInMilliseconds": 0,
+      "useLatest": false
+    }
+  ]
+}
