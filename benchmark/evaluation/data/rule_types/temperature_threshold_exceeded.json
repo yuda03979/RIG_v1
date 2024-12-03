@@ -207,7 +207,7 @@
     "additionalInformation": {},
     "alertDistributionType": "regular",
     "_id": "d2a51c77-9234-4876-95e5-f75f23fcb89e",
-    "name": "Temperature Overload",
+    "name": "temperature threshold exceeded",
     "lastUpdateTime": "09/16/2024 12:28:31",
     "description": "",
     "parameters": [

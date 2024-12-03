@@ -1,5 +1,5 @@
 from typing import Tuple, List, Any
-
+from RIG.src.Utils.utils import get_dict
 from RIG.globals import GLOBALS
 
 
@@ -11,13 +11,14 @@ class Classification:
 
     def predict(self, query) -> tuple[Any, int, bool]:
 
-        # using regex
-        type_names, succeed = self.find_rule_name_in_query(query)
-        if succeed:
-            return type_names[0], -1, False
+        # # using regex
+        # type_names, succeed = self.find_rule_name_in_query(query)
+        # if succeed:
+        #     return type_names[0], -1, False
 
         # using rag:
         type_names_list, succeed = self.using_rag(query)
+        print(type_names_list[0][0])
         if succeed:
             return type_names_list[0][0], type_names_list[0][1], False
 
@@ -47,13 +48,12 @@ class Classification:
 
     def using_rag(self, query):
         succeed = False
-        type_name = None
         type_names_list = self.rag_api.get_closest_type_name(query)
         closest_distance = type_names_list[0][1]
         difference = type_names_list[0][1] - type_names_list[1][1]
+        print(difference)
         if difference > GLOBALS.rag_difference and difference != float('inf'):  # the case of empty list
             if closest_distance > GLOBALS.rag_threshold:
-                print(difference)
                 succeed = True
         return type_names_list, succeed
 
@@ -66,26 +66,33 @@ class Classification:
         description_b = GLOBALS.db_manager.get_dict_features(type_name=type_names[1][0], feature="description")
 
         prompt = f"""
-        this is the query: 
-        {query} <END>
-        
-        your task is to return ONLY!!! {type_names[0][0]} or {type_names[1][0]}.
-        according to which is more simialr to the query.
-        
-        you also have schema and description for each of them:
-        for {type_names[0][0]}:
-        - schema: {schema_a}
-        - description: {description_a}
-        
-        for {type_names[1][0]}:
-        - schema: {schema_b}
-        - description: {description_b}
-        
-        choose only one!! or {type_names[0][0]} or {type_names[1][0]}:
-        Output:
+        Analyze the following query:  
+{query} <END>
+
+Based on the query, choose which type is a better match from the two options provided. Use the schema and description as context for your decision.  
+
+Option 1:  
+- Name: {type_names[0][0]}  
+- Schema: {schema_a}  
+- Description: {description_a}  
+
+Option 2:  
+- Name: {type_names[1][0]}  
+- Schema: {schema_b}  
+- Description: {description_b}  
+
+You must return ONLY ONE: either {{"type_name": {type_names[0][0]}}} or {{"type_name": {type_names[1][0]}}}.  
+
+Note: it must be in json form!
+Example of expected output:  
+{{"type_name": "Hay_field"}}  
+
+Actual output:
         """
-        type_name = self.gemma_api.predict(prompt)
-        if type_name in GLOBALS.db_manager.get_all_types_names():
-            return type_name, True
-        else:
-            return f'model didnt generate well: {type_name}', False
+        type_name = get_dict(self.gemma_api.predict(prompt) + '}')[0]
+        print(type_name)
+        try:
+            if type_name["type_name"] in GLOBALS.db_manager.get_all_types_names():
+                return type_name["type_name"], True
+        except:
+            return f'model didnt generate well: {str(type_name)}', False

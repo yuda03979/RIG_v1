@@ -14,6 +14,7 @@ torch.manual_seed(42)
 class GemmaApi:
 
     def __init__(self):
+
         self.model = Llama(
             model_path=f"{GLOBALS.models_directory}gemma-2-2b-it-Q8_0.gguf",
             cache_dir=GLOBALS.models_directory,
