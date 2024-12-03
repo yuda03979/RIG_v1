@@ -59,11 +59,11 @@ class Classification:
 
     def ask_model(self, query, type_names):
         print("type name given to gemma")
-        schema_a = self.db_manager.get_dict_features(type_name=type_names[0][0], feature="schema")
-        description_a = self.db_manager.get_dict_features(type_name=type_names[0][0], feature="description")
+        schema_a = GLOBALS.db_manager.get_dict_features(type_name=type_names[0][0], feature="schema")
+        description_a = GLOBALS.db_manager.get_dict_features(type_name=type_names[0][0], feature="description")
 
-        schema_b = self.db_manager.get_dict_features(type_name=type_names[1][0], feature="schema")
-        description_b = self.db_manager.get_dict_features(type_name=type_names[1][0], feature="description")
+        schema_b = GLOBALS.db_manager.get_dict_features(type_name=type_names[1][0], feature="schema")
+        description_b = GLOBALS.db_manager.get_dict_features(type_name=type_names[1][0], feature="description")
 
         prompt = f"""
         this is the query: 
