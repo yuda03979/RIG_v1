@@ -76,9 +76,8 @@ new_row = pl.DataFrame({
     "free_text": ['this is fake']
 })
 
-results_df = pl.concat([results_df, new_row])
+results_df = pl.concat([results_df, new_row]).to_pandas()
 
-result_df = results_df.to_pandas()
 confusion_matrix = pd.crosstab(
     results_df["actual"],
     results_df["predicted"],

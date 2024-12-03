@@ -7,6 +7,16 @@
 
 # Installation
 
+### - downlads (if using internet):
+ download the model and place it in EltaProject/data_directory
+```
+ https://huggingface.co/lmstudio-community/gemma-2-2b-it-GGUF?show_file_info=gemma-2-2b-it-Q8_0.gguf
+```
+
+in the first run, make sure you have internet acces for downloading the other data it need.
+
+
+
 ### - steps:
 1. place the data_directory in your desire place.
 2. RECOMMENDED: in EltaProject/globals.py, set the data_directory and the db_file_name. the data_directory should be "/bla/bla/", and the db_file_name should be "blabla.csv".
