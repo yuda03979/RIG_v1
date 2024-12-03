@@ -57,23 +57,8 @@ its OK, dont worry.
  llama_new_context_with_model: n_ctx_per_seq (1024) < n_ctx_train (8192) -- the full capacity of the model will not be utilized
  ggml_metal_init: skipping kernel_get_rows_bf16                     (not supported)
  ggml_metal_init: skipping kernel_mul_mv_bf16_f32                   (not supported)
- ggml_metal_init: skipping kernel_mul_mv_bf16_f32_1row              (not supported)
- ggml_metal_init: skipping kernel_mul_mv_bf16_f32_l4                (not supported)
- ggml_metal_init: skipping kernel_mul_mv_bf16_bf16                  (not supported)
- ggml_metal_init: skipping kernel_mul_mv_id_bf16_f32                (not supported)
- ggml_metal_init: skipping kernel_mul_mm_bf16_f32                   (not supported)
- ggml_metal_init: skipping kernel_mul_mm_id_bf16_f32                (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h64           (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h80           (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h96           (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h112          (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h128          (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h256          (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_vec_bf16_h128      (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_vec_bf16_h256      (not supported)
- ggml_metal_init: skipping kernel_cpy_f32_bf16                      (not supported)
- ggml_metal_init: skipping kernel_cpy_bf16_f32                      (not supported)
- ggml_metal_init: skipping kernel_cpy_bf16_bf16                     (not supported)
+ ggml_metal_init: skipping kernel_mul_mv_bf16_f32_1row              (not supported) 
+ {...} 
 
 
 ```python
@@ -92,24 +77,7 @@ rig2 = RuleInstanceGenerator(
  llama_new_context_with_model: n_ctx_per_seq (1024) < n_ctx_train (8192) -- the full capacity of the model will not be utilized
  ggml_metal_init: skipping kernel_get_rows_bf16                     (not supported)
  ggml_metal_init: skipping kernel_mul_mv_bf16_f32                   (not supported)
- ggml_metal_init: skipping kernel_mul_mv_bf16_f32_1row              (not supported)
- ggml_metal_init: skipping kernel_mul_mv_bf16_f32_l4                (not supported)
- ggml_metal_init: skipping kernel_mul_mv_bf16_bf16                  (not supported)
- ggml_metal_init: skipping kernel_mul_mv_id_bf16_f32                (not supported)
- ggml_metal_init: skipping kernel_mul_mm_bf16_f32                   (not supported)
- ggml_metal_init: skipping kernel_mul_mm_id_bf16_f32                (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h64           (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h80           (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h96           (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h112          (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h128          (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h256          (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_vec_bf16_h128      (not supported)
- ggml_metal_init: skipping kernel_flash_attn_ext_vec_bf16_h256      (not supported)
- ggml_metal_init: skipping kernel_cpy_f32_bf16                      (not supported)
- ggml_metal_init: skipping kernel_cpy_bf16_f32                      (not supported)
- ggml_metal_init: skipping kernel_cpy_bf16_bf16                     (not supported)
-
+ {...}
 
 ## adding new rule type
 
@@ -249,24 +217,7 @@ run_gui()
 llama_new_context_with_model: n_ctx_per_seq (1024) < n_ctx_train (8192) -- the full capacity of the model will not be utilized
 ggml_metal_init: skipping kernel_get_rows_bf16                     (not supported)
 ggml_metal_init: skipping kernel_mul_mv_bf16_f32                   (not supported)
-ggml_metal_init: skipping kernel_mul_mv_bf16_f32_1row              (not supported)
-ggml_metal_init: skipping kernel_mul_mv_bf16_f32_l4                (not supported)
-ggml_metal_init: skipping kernel_mul_mv_bf16_bf16                  (not supported)
-ggml_metal_init: skipping kernel_mul_mv_id_bf16_f32                (not supported)
-ggml_metal_init: skipping kernel_mul_mm_bf16_f32                   (not supported)
-ggml_metal_init: skipping kernel_mul_mm_id_bf16_f32                (not supported)
-ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h64           (not supported)
-ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h80           (not supported)
-ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h96           (not supported)
-ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h112          (not supported)
-ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h128          (not supported)
-ggml_metal_init: skipping kernel_flash_attn_ext_bf16_h256          (not supported)
-ggml_metal_init: skipping kernel_flash_attn_ext_vec_bf16_h128      (not supported)
-ggml_metal_init: skipping kernel_flash_attn_ext_vec_bf16_h256      (not supported)
-ggml_metal_init: skipping kernel_cpy_f32_bf16                      (not supported)
-ggml_metal_init: skipping kernel_cpy_bf16_f32                      (not supported)
-ggml_metal_init: skipping kernel_cpy_bf16_bf16                     (not supported)
-
+{...}
 
 * Running on local URL:  http://0.0.0.0:8000
 
