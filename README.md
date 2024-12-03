@@ -8,7 +8,7 @@
 # Installation
 
 ### - downlads (if using internet):
- download the model and place it in EltaProject/data_directory
+ download the model and place it in benchmark/data_directory
 ```
  https://huggingface.co/lmstudio-community/gemma-2-2b-it-GGUF?show_file_info=gemma-2-2b-it-Q8_0.gguf
 ```

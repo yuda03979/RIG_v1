@@ -17,7 +17,7 @@ class Get:
 
         response = {
             "rule_instance": None,
-            "error": True,
+            "is_error": True,
             "error_message": "",
             "free_text": free_text,
             "type_name": None,
@@ -38,6 +38,6 @@ class Get:
             return response
 
         response["rule_instance"] = post_processing(response["type_name"], model_response)
-        response["error"] = False
+        response["is_error"] = False
         return response
 

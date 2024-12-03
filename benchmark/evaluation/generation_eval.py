@@ -1,17 +1,13 @@
 import pandas as pd
 import ast
-
+import time
 from RIG import RuleInstanceGenerator
 
 # Initialize the rule instance generator
 rig = RuleInstanceGenerator()
 
-# Path to the CSV file containing eval_data_generation
-csv_path = "data/generation_data.csv"
-
-# Load the CSV file
+csv_path = "data/data_shucki.csv"
 df_eval = pd.read_csv(csv_path)
-
 
 # Helper function to parse `free_text`
 def parse_free_text(text):
@@ -30,12 +26,12 @@ def parse_free_text(text):
 
 
 # Parse `excepted_response` and `free_text`
-df_eval["excepted_response"] = df_eval["excepted_response"].apply(ast.literal_eval)  # Convert strings to dictionaries
+df_eval["expected_response"] = df_eval["expected_response"].apply(ast.literal_eval)  # Convert strings to dictionaries
 df_eval["free_text"] = df_eval["free_text"].apply(parse_free_text)  # Handle plain strings and lists
 
 # Create eval_data_generation from the DataFrame
 eval_data_generation = [
-    (row["id"], row["type_names"], row["excepted_response"], row["free_text"])
+    (row["id"], row["rule_types_names"], row["expected_response"], row["free_text"])
     for _, row in df_eval.iterrows()
 ]
 
@@ -54,11 +50,15 @@ def correct_prediction(expected, response):
     """Prepare expected and response for comparison."""
     return lower_values(expected, response)
 
+def clean_text(text):
+    """Remove all non-alphanumeric characters and convert to lowercase."""
+    return ''.join(char.lower() for char in text if char.isalnum())
+
 
 def predict(free_text):
     """Predict rule instance using the rig."""
     model_response = rig.get_rule_instance(free_text)
-    if model_response["error"] == True:
+    if model_response["is_error"] == True:
         return False, False
     rule_instance = model_response["rule_instance"]
     print(f"rule instance: {rule_instance}")
@@ -71,7 +71,7 @@ def predict(free_text):
 def normalize_empty_value(value):
     """Normalize empty values to a common representation."""
     if value in [None, "", "null", "None", "none", "empty"] or (isinstance(value, float) and pd.isna(value)):
-        return "EMPTY"  # Choose a common representation for empty values
+        return "EMPTY"
     return value
 
 
@@ -104,7 +104,7 @@ def score_param_type_avg(expected, response, numerical=True):
         # Filter numerical values
         verbal_keys = [k for k, v in expected.items() if is_numerical(v)]
     else:
-        verbal_keys = [k for k, v in expected.items() if not is_numerical(v) and k != "ruleInstanceName"]
+        verbal_keys = [k for k, v in expected.items() if not is_numerical(v) and k.lower() != "ruleInstanceName".lower()]
 
     score = 0
 
@@ -133,17 +133,28 @@ def collect_error_data(param_name, expected, response, free_text):
     }
 
 
+def score_binary(expected, response):
+    for k, expected_v in expected.items():
+        try:
+            if normalize_empty_value(response[k]) != normalize_empty_value(expected_v):
+                return 0
+        except:
+            return 0
+    return 1
+
+
 # Initialize DataFrames for errors for each scoring metric
 error_df_param_numerical_binary_score = []
 error_df_param_verbal_binary_score = []
 error_df_rule_name_score = []
 
-
 # Evaluation Function
 def evaluate():
     rows = []
     # Loop through the eval_data_generation
-    for row_id, type_name, expected, free_text_list in eval_data_generation:
+    for i, (row_id, type_name, expected, free_text_list) in enumerate(eval_data_generation[:]):
+        if not i % 10:
+            time.sleep(15)
         for free_text in free_text_list:
             # print(free_text)
             if not free_text.strip():
@@ -159,12 +170,13 @@ def evaluate():
                 expected, response = correct_prediction(expected, response)
 
                 # Numerical and segmentation scores
-                binary_score = int(response == expected)
+                binary_score_no_rule_instance = score_binary(expected, response)
                 param_numerical_binary_score = score_param_type(expected, response, numerical=True)
                 param_verbal_binary_score = score_param_type(expected, response, numerical=False)
                 param_numerical_avg_score = score_param_type_avg(expected, response, numerical=True)
                 param_verbal_avg_score = score_param_type_avg(expected, response, numerical=False)
                 rule_name_score = score_rule_instance_name(expected, response)
+                binary_score = 1 if rule_name_score and binary_score_no_rule_instance else 0
 
                 # If there is a score mismatch, add the error data to the respective lists
                 if param_numerical_binary_score == 0:
@@ -180,6 +192,7 @@ def evaluate():
                 # New row with evaluation metrics
                 new_row = {
                     "binary_score": binary_score,
+                    "binary_score_no_rule_instance": binary_score_no_rule_instance,
                     "param_numerical_binary_score": param_numerical_binary_score,
                     "param_verbal_binary_score": param_verbal_binary_score,
                     "param_numerical_avg_score": param_numerical_avg_score,
@@ -188,12 +201,13 @@ def evaluate():
                     "response": response,
                     "expected": expected,
                     "free_text": free_text,
-                    "correct_type_name": int(rig_response["type_name"] == type_name)
+                    "correct_type_name": int(clean_text(rig_response["type_name"]) == clean_text(type_name))
                 }
                 rows.append(new_row)
             except Exception as e:
                 new_row = {
                     "binary_score": 0,
+                    "binary_score_no_rule_instance": 0,
                     "param_numerical_binary_score": 0,
                     "param_verbal_binary_score": 0,
                     "param_numerical_avg_score": 0,
@@ -244,6 +258,7 @@ def calculate_accuracy(df):
         "param_verbal_binary_score": df["param_verbal_binary_score"].mean(),
         "param_verbal_avg_score": df["param_verbal_avg_score"].mean(),
         "score_rule_instance_name": df["score_rule_instance_name"].mean(),
+        "correct_type_name": df["correct_type_name"].mean()
     }
 
     # Print the results
@@ -254,7 +269,6 @@ def calculate_accuracy(df):
     return accuracy_metrics
 
 
-# Calculate and print the accuracy metrics
 accuracy_results = calculate_accuracy(df_results[df_results["correct_type_name"] == 1])
 """Average Accuracy Metrics:
 binary_score: 8.60%

@@ -12,7 +12,6 @@ class RagModel:
         self.model = SentenceTransformer(self.model_name, trust_remote_code=True, cache_folder=GLOBALS.models_directory)
 
     def get_embedding(self, text: str):
-        # Ensure a pooling mechanism is applied
         embedding = self.model.encode(text, padding=True, truncation=True)
         return embedding
 

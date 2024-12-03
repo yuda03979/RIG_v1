@@ -1,8 +1,11 @@
 import polars as pl
 from RIG import RuleInstanceGenerator
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-csv_path = "data/classification_data.csv"
+
+csv_path = "data/classification_data_yosef.csv"
 df = pl.read_csv(csv_path)
 
 rig = RuleInstanceGenerator()
@@ -42,8 +45,8 @@ def evaluate_accuracy():
         rows.append({
             "id": id_free_text,
             "score": score,
-            "predicted": predicted_type_name,
-            "actual": actual_type_name,
+            "predicted": predicted_type_name_cleaned,
+            "actual": actual_type_name_cleaned,
             "free_text": free_text,
         })
 
@@ -68,6 +71,14 @@ errors = results_df.filter(pl.col("score") == 0).to_dicts()
 # Optional: Save errors to a CSV
 results_df.filter(pl.col("score") == 0).write_csv("output/classification_errors.csv")
 
+print("results_df['actual'].unique():\n")
+for i, _ in enumerate(results_df['actual'].unique()):
+    print(i, _)
+
+print("results_df['predicted'].unique():\n")
+for i, _ in enumerate(results_df['predicted'].unique()):
+    print(i, _)
+
 new_row = pl.DataFrame({
     "id": ["9999999"],
     "score": [-1],
@@ -81,18 +92,17 @@ results_df = pl.concat([results_df, new_row]).to_pandas()
 confusion_matrix = pd.crosstab(
     results_df["actual"],
     results_df["predicted"],
-    normalize='index'
+    # normalize='index'
 )
 
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 plt.figure(figsize=(20, 20))
 sns.heatmap(
     confusion_matrix,
     annot=True,  # Show numbers in each cell
     cmap='Blues',  # Color scheme
-    fmt='g'  # Format for the annotations
+    fmt='g',  # Format for the annotations
+    xticklabels=confusion_matrix.columns
 )
 plt.title('Confusion Matrix')
 plt.xlabel('Predicted Label')

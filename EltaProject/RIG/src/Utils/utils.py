@@ -9,6 +9,14 @@ from datetime import datetime
 from RIG.globals import GLOBALS
 
 
+
+def normalize_empty_value(value):
+    """Normalize empty values to a common representation."""
+    if value in [None, "", "null", "None", "none", "empty"]:
+        return "null"  # Choose a common representation for empty values
+    return value
+
+
 def get_dict(input_string):
     # Use regex to find content between { and } that looks like a valid JSON
     match = re.search(r'\{[^}]*\}', input_string)

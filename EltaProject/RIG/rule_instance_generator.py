@@ -1,6 +1,6 @@
 import time
 from datetime import datetime
-import os
+
 from RIG.src.Utils.db_manager import DBManager
 from RIG.globals import GLOBALS
 from RIG.src.App.rule_instance.get import Get
@@ -70,7 +70,7 @@ class RuleInstanceGenerator:
 
         response = {
             "rule_instance": None,
-            "error": True,
+            "is_error": True,
             "error_message": '',
             "free_text": free_text,
             "type_name": None,
@@ -79,13 +79,15 @@ class RuleInstanceGenerator:
             "schema": None
         }
 
-        try:
-            response = self.get_instance.predict(free_text)
+        if any(char.isalpha() for char in free_text) and len(free_text) > 10:
+            try:
+                response = self.get_instance.predict(free_text)
 
-        except Exception as e:
-            # Comprehensive error logging
-            response["error_message"] = f"Processing failed: {type(e).__name__}, {str(e)}"
-            # logging.error(f"Error processing rule instance: {e}", exc_info=True)
+            except Exception as e:
+                response["error_message"] = f"Processing failed: {type(e).__name__}, {str(e)}"
+
+        else:
+            response["error_message"] = f"please enter meaningful text"
 
         current_time = datetime.now()
         response["time"] = f"{current_time.strftime('%Y-%m-%d')}--{current_time.strftime('%H:%M:%S')}"
