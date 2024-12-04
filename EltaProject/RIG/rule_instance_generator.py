@@ -43,8 +43,8 @@ class RuleInstanceGenerator:
         set_globals(project_directory, rag_model_path, gpt_model_path, db_path, rag_difference, rag_threshold, max_context_length, max_new_tokens,
                     n_threads)
         self.globals = GLOBALS
-        self.gemma_api = GPTServer()  # GemmaApi()
         self.rag_api = RagApi()
+        self.gemma_api = GPTServer()  # GemmaApi()
         self.get_instance = Get(rag_api=self.rag_api, gemma_api=self.gemma_api)
         self.new_type = NewType(rag_api=self.rag_api)
 

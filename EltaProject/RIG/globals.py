@@ -9,8 +9,7 @@ class Globals:
     def __init__(self):
         self.project_directory = project_directory
 
-        self.rag_model_name = "BAAI/bge-m3"
-        self.rag_model_path = ""
+        self.rag_model_path = "/Users/yuda/PycharmProjects/EltaBenchmark/benchmark/data_directory/BAAI/bge-m3"
         self.gpt_model_path = "/Users/yuda/PycharmProjects/EltaBenchmark/benchmark/data_directory/gemma-2-2b-it-Q8_0.gguf"
 
         self.db_path = project_directory + "db_data.csv"

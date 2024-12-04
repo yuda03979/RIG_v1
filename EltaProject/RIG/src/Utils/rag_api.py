@@ -8,7 +8,13 @@ from RIG.globals import GLOBALS
 class RagModel:
     def __init__(self):
         # "BAAI/bge-m3"
-        self.model = SentenceTransformer(GLOBALS.rag_model_name, cache_folder="/Users/yuda/PycharmProjects/EltaBenchmark/benchmark/data_directory")
+        # self.model = SentenceTransformer(model_name_or_path=
+        #                                  "BAAI/bge-m3", trust_remote_code=True, cache_folder=GLOBALS.project_directory)
+        # print("model loaded")
+        # model_path = "/Users/yuda/PycharmProjects/EltaBenchmark/benchmark/data_directory/"
+        # self.model.save(model_path + "BAAI/bge-m3", model_name="BAAI/bge-m3")
+        self.model = SentenceTransformer(GLOBALS.rag_model_path)
+
 
     def get_embedding(self, text: str):
         embedding = self.model.encode(text, padding=True, truncation=True)
