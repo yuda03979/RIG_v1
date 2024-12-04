@@ -14,9 +14,13 @@
 ```
 
 in the first run, make sure you have internet acces for downloading the other data it need.
-
-
-
+```
+        self.model = SentenceTransformer(model_name_or_path=
+                                         "BAAI/bge-m3", trust_remote_code=True, cache_folder=???)
+        print("model loaded")
+        model_path = "?"
+        self.model.save(model_path + "BAAI/bge-m3", model_name="BAAI/bge-m3")
+```
 ### - steps:
 1. place the data_directory in your desire place.
 2. RECOMMENDED: in EltaProject/globals.py, set the data_directory and the db_file_name. the data_directory should be "/bla/bla/", and the db_file_name should be "blabla.csv".
