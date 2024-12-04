@@ -9,6 +9,9 @@ setup(
     long_description=open('../README.md', mode="r", encoding="utf-8").read(),
     packages=find_packages(),
     include_package_data=True,
+    package_data={
+        'RIG': ['llama.cpp/*', 'llama.cpp/**/*'],  # Include all files in the llama.cpp directory
+    },
     install_requires=[
         "numpy",
         "torch",

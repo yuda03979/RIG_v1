@@ -1,18 +1,16 @@
 import os
 
 
-project_directory = "/Users/yuda/PycharmProjects/EltaBenchmark/benchmark/data_directory/"  # change that
-
-
 class Globals:
 
     def __init__(self):
-        self.project_directory = project_directory
+        self.project_directory = "/Users/yuda/PycharmProjects/EltaProject_v1/archive/data_directory/" # ensure the / in the end
 
-        self.rag_model_path = "/Users/yuda/PycharmProjects/EltaBenchmark/benchmark/data_directory/BAAI/bge-m3"
-        self.gpt_model_path = "/Users/yuda/PycharmProjects/EltaBenchmark/benchmark/data_directory/gemma-2-2b-it-Q8_0.gguf"
+        self.llama_server_path = "/Users/yuda/PycharmProjects/EltaProject_v1/archive/data_directory/llama.cpp/llama-server"
+        self.rag_model_path = "/Users/yuda/PycharmProjects/EltaProject_v1/archive/data_directory/BAAI/bge-m3"
+        self.gpt_model_path = "/Users/yuda/PycharmProjects/EltaProject_v1/archive/data_directory/gemma-2-2b-it-Q8_0.gguf"
 
-        self.db_path = project_directory + "db_data.csv"
+        self.db_path = self.project_directory + "db_data.csv"
         self.db_manager = None  # temporarily
 
         self.rag_difference = 0.001

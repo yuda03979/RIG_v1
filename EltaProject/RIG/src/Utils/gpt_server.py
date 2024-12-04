@@ -1,4 +1,7 @@
+import importlib.resources
 import os
+import shutil
+
 from RIG.globals import GLOBALS
 import subprocess
 import time
@@ -8,6 +11,8 @@ import os
 import signal
 import os
 import subprocess
+from pathlib import Path
+
 
 
 class LlamaCppServer:
@@ -15,20 +20,20 @@ class LlamaCppServer:
         self.host = host
         self.port = port
         self.process = None
+        self.llama_server_path = GLOBALS.llama_server_path
+
 
     def start(self):
-        # Check if llama-server executable exists
-        llama_server_path = 'llama.cpp/llama-server'
 
-        if not os.path.exists(llama_server_path) or not os.access(llama_server_path, os.X_OK):
-            print(f"{llama_server_path} does not exist or is not executable. Running make...")
+        if not os.path.exists(self.llama_server_path) or not os.access(self.llama_server_path, os.X_OK):
+            print(f"{self.llama_server_path} does not exist or is not executable. Running make...")
 
             # Run make llama-server
             make_cmd = ['make', 'llama-server']
             try:
                 make_process = subprocess.run(
                     make_cmd,
-                    cwd='llama.cpp',  # Assuming you're in the parent directory of llama.cpp
+                    cwd=self.llama_server_path,
                     check=True,  # Raises CalledProcessError if the command fails
                     capture_output=True,
                     text=True
@@ -42,7 +47,7 @@ class LlamaCppServer:
 
         # Proceed with starting the server
         server_cmd = [
-            llama_server_path,
+            self.llama_server_path,
             '-m', GLOBALS.gpt_model_path,
             '-c', str(GLOBALS.max_context_length),
             '--host', self.host,
