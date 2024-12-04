@@ -5,11 +5,16 @@ from sentence_transformers import SentenceTransformer
 from RIG.globals import GLOBALS
 
 
-
 class RagModel:
     def __init__(self):
-        self.model_name = "BAAI/bge-m3"
-        self.model = SentenceTransformer(self.model_name, trust_remote_code=True, cache_folder=GLOBALS.models_directory)
+        # "BAAI/bge-m3"
+        # self.model = SentenceTransformer(model_name_or_path=
+        #                                  "BAAI/bge-m3", trust_remote_code=True, cache_folder=GLOBALS.project_directory)
+        # print("model loaded")
+        # model_path = "/Users/yuda/PycharmProjects/EltaProject_v1/archive/data_directory/"
+        # self.model.save(model_path + "BAAI/bge-m3", model_name="BAAI/bge-m3")
+        self.model = SentenceTransformer(GLOBALS.rag_model_path)
+
 
     def get_embedding(self, text: str):
         embedding = self.model.encode(text, padding=True, truncation=True)

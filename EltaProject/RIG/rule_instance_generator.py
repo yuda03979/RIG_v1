@@ -1,3 +1,4 @@
+import os
 import time
 from datetime import datetime
 
@@ -9,23 +10,31 @@ from RIG.src.Utils.utils import log_interactions
 
 from RIG.src.Utils.rag_api import RagApi
 from RIG.src.Utils.gemma_api import GemmaApi
+from RIG.src.Utils.gpt_server import GPTServer
 
 
-def set_globals(data_directory, db_file_name, rag_difference, rag_threshold, max_context_length, max_new_tokens, n_threads):
-    GLOBALS.db_manager = DBManager(data_directory + db_file_name)
-    GLOBALS.models_directory = data_directory
+def set_globals(project_directory, rag_model_path, gpt_model_path, llama_server_path, db_path, rag_difference, rag_threshold, max_context_length, max_new_tokens,
+                n_threads):
+    GLOBALS.db_manager = DBManager(db_path)
+    GLOBALS.project_directory = project_directory
+    GLOBALS.gpt_model_path = gpt_model_path
+    GLOBALS.rag_model_path = rag_model_path
     GLOBALS.rag_difference = rag_difference
     GLOBALS.rag_threshold = rag_threshold
     GLOBALS.max_context_length = max_context_length
     GLOBALS.max_new_tokens = max_new_tokens
     GLOBALS.n_threads = n_threads
+    GLOBALS.llama_server_path = llama_server_path
 
 
 class RuleInstanceGenerator:
 
     def __init__(self,
-                 data_directory=GLOBALS.models_directory,
-                 db_file_name=GLOBALS.db_file_name,
+                 project_directory=GLOBALS.project_directory,
+                 rag_model_path=GLOBALS.rag_model_path,
+                 gpt_model_path=GLOBALS.gpt_model_path,
+                 llama_server_path=GLOBALS.llama_server_path,
+                 db_path=GLOBALS.db_path,
                  rag_difference=GLOBALS.rag_difference,
                  rag_threshold=GLOBALS.rag_threshold,
                  max_context_length=GLOBALS.max_context_length,
@@ -33,10 +42,11 @@ class RuleInstanceGenerator:
                  n_threads=GLOBALS.n_threads,
                  ):
 
-        set_globals(data_directory, db_file_name, rag_difference, rag_threshold, max_context_length, max_new_tokens, n_threads)
+        set_globals(project_directory, rag_model_path, gpt_model_path, llama_server_path, db_path, rag_difference, rag_threshold, max_context_length, max_new_tokens,
+                    n_threads)
         self.globals = GLOBALS
-        self.gemma_api = GemmaApi()
         self.rag_api = RagApi()
+        self.gemma_api = GPTServer()  # GemmaApi()
         self.get_instance = Get(rag_api=self.rag_api, gemma_api=self.gemma_api)
         self.new_type = NewType(rag_api=self.rag_api)
 
@@ -101,6 +111,20 @@ class RuleInstanceGenerator:
         response["inference_time"] = time.time() - start_time
         log_interactions(response)
         return response
+
+    def add_rule_types_from_file(self, json_directory=None):
+        if json_directory:
+            for file_name in os.listdir(json_directory):
+                if file_name.endswith(".json"):
+                    if not self.new_rule_type(json_directory + file_name):
+                        return f"loading don't complete. error with: {file_name}"
+            return True
+        return False
+
+    def tweak_rag_parameters(self, rag_threshold=GLOBALS.rag_threshold, rag_difference=GLOBALS.rag_difference):
+        GLOBALS.rag_threshold = rag_threshold
+        GLOBALS.rag_difference = rag_difference
+        return True
 
     def get_rule_types(self):
         return GLOBALS.db_manager.get_all_types_names()
