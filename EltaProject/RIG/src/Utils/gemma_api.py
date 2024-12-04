@@ -34,4 +34,4 @@ class GemmaApi:
             stop=['}']
             # seed=0,
         )["choices"][0]["text"]
-        return response
+        return response + '}'

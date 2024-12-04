@@ -52,7 +52,7 @@ def yaml_from_json(json_doc):
 
 def log_interactions(response):
     # create hidde logs directory if it doesn't exist
-    log_dir = os.path.join(GLOBALS.models_directory, '.logs')
+    log_dir = os.path.join(GLOBALS.project_directory, '.logs')
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
     log_file = os.path.join(log_dir, "logs.csv")
