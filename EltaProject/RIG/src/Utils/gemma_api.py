@@ -16,7 +16,7 @@ class GemmaApi:
     def __init__(self):
 
         self.model = Llama(
-            model_path=f"{GLOBALS.models_directory}gemma-2-2b-it-Q8_0.gguf",
+            model_path=GLOBALS.gpt_model_path,
             cache_dir=GLOBALS.models_directory,
             n_ctx=GLOBALS.max_context_length,
             n_threads=GLOBALS.n_threads,

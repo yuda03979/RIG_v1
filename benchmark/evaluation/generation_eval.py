@@ -237,7 +237,7 @@ def evaluate():
                 # New row with evaluation metrics
                 new_row = {
                     "binary_score": binary_score,
-                    "binary_score_no_rule_instance": binary_score_no_rule_instance,
+                    "binary_score_no_rule_instance": binary_score_no_rule_instance,  # name
                     "param_numerical_binary_score": param_numerical_binary_score,
                     "param_verbal_binary_score": param_verbal_binary_score,
                     "param_numerical_avg_score": param_numerical_avg_score,
