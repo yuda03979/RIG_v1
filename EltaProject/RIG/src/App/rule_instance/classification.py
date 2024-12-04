@@ -53,6 +53,8 @@ class Classification:
         if difference > GLOBALS.rag_difference and difference != float('inf'):  # the case of empty list
             if closest_distance > GLOBALS.rag_threshold:
                 succeed = True
+        if type_names_list[0][0] != 'None' and type_names_list[1][0] == 'None':  # in case of one type name
+            succeed = True
         return type_names_list, succeed
 
     def ask_model(self, query, type_names):
