@@ -31,6 +31,8 @@ def correct_numerical_values(schema, model_response):
         if schema[k].lower() in ['int', 'int32']:
             try:
                 model_response[k] = float(v)
+                if int(model_response[k]) == model_response[k]:
+                    model_response[k] = int(model_response[k])
             except ValueError:
                 model_response[k] = "null"
     return model_response

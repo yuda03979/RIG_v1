@@ -18,7 +18,6 @@ class Classification:
 
         # using rag:
         type_names_list, succeed = self.using_rag(query)
-        print(type_names_list[0][0])
         if succeed:
             return type_names_list[0][0], type_names_list[0][1], False
 
@@ -51,14 +50,12 @@ class Classification:
         type_names_list = self.rag_api.get_closest_type_name(query)
         closest_distance = type_names_list[0][1]
         difference = type_names_list[0][1] - type_names_list[1][1]
-        print(difference)
         if difference > GLOBALS.rag_difference and difference != float('inf'):  # the case of empty list
             if closest_distance > GLOBALS.rag_threshold:
                 succeed = True
         return type_names_list, succeed
 
     def ask_model(self, query, type_names):
-        print("type name given to gemma")
         schema_a = GLOBALS.db_manager.get_dict_features(type_name=type_names[0][0], feature="schema")
         description_a = GLOBALS.db_manager.get_dict_features(type_name=type_names[0][0], feature="description")
 
@@ -90,7 +87,6 @@ Example of expected output:
 Actual output:
         """
         type_name = get_dict(self.gemma_api.predict(prompt) + '}')[0]
-        print(type_name)
         try:
             if type_name["type_name"] in GLOBALS.db_manager.get_all_types_names():
                 return type_name["type_name"], True

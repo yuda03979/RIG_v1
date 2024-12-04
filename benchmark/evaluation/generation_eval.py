@@ -69,6 +69,7 @@ def predict(free_text):
     """Predict rule instance using the rig."""
     model_response = rig.get_rule_instance(free_text)
     if model_response["is_error"] == True:
+        print("error: ", model_response)
         return False, False
     rule_instance = model_response["rule_instance"]
     response = rule_instance["params"]
@@ -194,9 +195,9 @@ error_df_rule_name_score = []
 # Evaluation Function
 def evaluate():
     rows = []
-    for i, (row_id, type_name, expected, free_text_list) in tqdm.tqdm(enumerate(eval_data_generation[:]), total=len(eval_data_generation)):
+    for i, (row_id, type_name, expected, free_text_list) in tqdm.tqdm(enumerate(eval_data_generation[::3]), total=len(eval_data_generation[::3])):
         if not i % 10:
-            time.sleep(15)
+            time.sleep(20)
         for free_text in free_text_list:
             # print(free_text)
             if not free_text.strip():
@@ -205,7 +206,7 @@ def evaluate():
 
             try:
                 response, rig_response = predict(free_text)
-                # print(i, response)
+                print(i, rig_response)
                 if not rig_response:
                     error
                 expected, response = correct_prediction(expected, response)

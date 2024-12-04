@@ -106,4 +106,5 @@ class RuleInstanceGenerator:
         return GLOBALS.db_manager.get_all_types_names()
 
     def feedback(self, fb):
+        log_interactions({"feedback": fb, "time": datetime.now()})
         print("thank you :)")
