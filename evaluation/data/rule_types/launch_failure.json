@@ -1,0 +1,322 @@
+{
+    "logicType": "structured",
+    "structuredlogic": {
+      "id": "root",
+      "expressionType": null,
+      "freeText": null,
+      "expressionGroup": null,
+      "expressionOperand": "None",
+      "leftStatment": null,
+      "rightStatment": null,
+      "groupType": "And",
+      "expressions": [
+        {
+          "id": "root.1",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Launch",
+              "field": "launchID",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "launchID",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.2",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Launch",
+              "field": "failureType",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "failureType",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.3",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "greaterOrEqual",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Launch",
+              "field": "failureSeverity",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "int32",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "failureSeverity",
+              "valueType": "Int",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.4",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Launch",
+              "field": "impactArea",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "impactArea",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.5",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "beforeOrEqual",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Launch",
+              "field": "launchTime",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "launchTime",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.6",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "beforeOrEqual",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Launch",
+              "field": "recoveryTime",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "int32",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "recoveryTime",
+              "valueType": "Int",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        }
+      ]
+    },
+    "textualLogic": null,
+    "children": [],
+    "additionalInformation": {},
+    "alertDistributionType": "regular",
+    "_id": "a4e8b2c1-e5f3-4c8f-826b-31b9e9ab732b",
+    "name": "Launch Failure",
+    "lastUpdateTime": "11/27/2024 21:00:00",
+    "description": "",
+    "parameters": [
+      {
+        "name": "launchID",
+        "type": "String",
+        "defaultValue": "",
+        "description": "",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "failureType",
+        "type": "String",
+        "defaultValue": "",
+        "description": "",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "failureSeverity",
+        "type": "Int",
+        "defaultValue": "",
+        "description": "",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "impactArea",
+        "type": "String",
+        "defaultValue": "",
+        "description": "Geographic area or specific system affected by the launch failure.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "launchTime",
+        "type": "String",
+        "defaultValue": "",
+        "description": "",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "recoveryTime",
+        "type": "Int",
+        "defaultValue": "",
+        "description": "Time it takes for recovery after the failure, measured in hours.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      }
+    ],
+    "eventDetails": [
+      {
+        "objectName": "Launch",
+        "objectDescription": null,
+        "timeWindowInMilliseconds": 0,
+        "useLatest": false
+      }
+    ]
+  }
+  

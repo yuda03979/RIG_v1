@@ -1,0 +1,273 @@
+{
+    "logicType": "structured",
+    "structuredlogic": {
+      "id": "root",
+      "expressionType": null,
+      "freeText": null,
+      "expressionGroup": null,
+      "expressionOperand": "None",
+      "leftStatment": null,
+      "rightStatment": null,
+      "groupType": "And",
+      "expressions": [
+        {
+          "id": "root.1",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "greater",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Temperature",
+              "field": "current_temperature",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "int32",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "max_temperature",
+              "valueType": "Int",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.2",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Temperature",
+              "field": "sensor_type",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "string",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "sensor_type",
+              "valueType": "String",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.3",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "equal",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Temperature",
+              "field": "device_id",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "int32",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "device_id",
+              "valueType": "Int",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.4",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "greater",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Temperature",
+              "field": "threshold",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "int32",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "threshold",
+              "valueType": "Int",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        },
+        {
+          "id": "root.5",
+          "expressionType": {
+            "leftOption": "basic",
+            "rightOption": "parameterValue"
+          },
+          "freeText": null,
+          "expressionGroup": null,
+          "expressionOperand": "less",
+          "leftStatment": [
+            {
+              "atomType": "property",
+              "objectName": "Temperature",
+              "field": "max_temperature",
+              "fieldType": null,
+              "isInputObject": true,
+              "value": null,
+              "valueType": "int32",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "rightStatment": [
+            {
+              "atomType": "parameterValue",
+              "objectName": null,
+              "field": null,
+              "fieldType": null,
+              "isInputObject": false,
+              "value": "100",
+              "valueType": "Int",
+              "operandType": null,
+              "functionType": null
+            }
+          ],
+          "groupType": "None",
+          "expressions": null
+        }
+      ]
+    },
+    "textualLogic": null,
+    "children": [],
+    "additionalInformation": {},
+    "alertDistributionType": "regular",
+    "_id": "d2a51c77-9234-4876-95e5-f75f23fcb89e",
+    "name": "temperature threshold exceeded",
+    "lastUpdateTime": "09/16/2024 12:28:31",
+    "description": "",
+    "parameters": [
+      {
+        "name": "current_temperature",
+        "type": "Int",
+        "defaultValue": "",
+        "description": "The current temperature being measured by the sensor.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "max_temperature",
+        "type": "Int",
+        "defaultValue": "",
+        "description": "The maximum temperature allowed before triggering an alert.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "sensor_type",
+        "type": "String",
+        "defaultValue": "",
+        "description": "The type of sensor monitoring the temperature.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "device_id",
+        "type": "Int",
+        "defaultValue": "",
+        "description": "The ID of the device being monitored.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      },
+      {
+        "name": "threshold",
+        "type": "Int",
+        "defaultValue": "",
+        "description": "The threshold percentage value for temperature exceeding the limit.",
+        "displayName": "",
+        "repositoryName": "",
+        "mandatory": false,
+        "selectableValue": []
+      }
+    ],
+    "eventDetails": [
+      {
+        "objectName": "Temperature",
+        "objectDescription": null,
+        "timeWindowInMilliseconds": 0,
+        "useLatest": false
+      }
+    ]
+  }

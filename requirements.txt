@@ -1,0 +1,11 @@
+numpy
+torch
+transformers
+polars
+llama-cpp-python
+sentence-transformers
+pandas
+gradio
+uvicorn
+fastapi
+python-dotenv
