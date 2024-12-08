@@ -127,6 +127,7 @@ class RuleInstanceGenerator:
         current_time = datetime.now()
         response["time"] = f"{current_time.strftime('%Y-%m-%d')}|{current_time.strftime('%H:%M:%S')}"
         response["inference_time"] = time.time() - start_time
+        response["rag_score"] = response["rag_score"].item()
         log_interactions(response)
         return response
 

@@ -46,7 +46,7 @@ def init_gemma_model(
 
 @app.post("/get_rule_instance")
 def get_rule_instance(free_text):
-    return str(rig.get_rule_instance(free_text))
+    return rig.get_rule_instance(free_text)
 
 
 @app.get("/get_rule_types_names")

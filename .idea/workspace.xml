@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af38b4dc-f8a6-4b88-8aea-5460b43bf677" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RIG/src/Utils/ChatGPT_api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG/globals.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/globals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.Docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.Docker.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RIG/rule_instance_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/rule_instance_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/generation_eval (2).py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/generation_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/generation_eval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/try.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +69,7 @@
     "Python.utils.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "yuda__v3",
-    "last_opened_file_path": "/Users/yuda/Desktop/RIG_v1",
+    "last_opened_file_path": "/Users/yuda/Desktop/RIG_v1/RIG/src/Utils",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -86,6 +81,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/RIG/src/Utils" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/evaluation" />
     </key>
@@ -197,7 +193,7 @@
       <workItem from="1733479560245" duration="87000" />
       <workItem from="1733483301059" duration="11584000" />
       <workItem from="1733585635377" duration="6290000" />
-      <workItem from="1733646804617" duration="6914000" />
+      <workItem from="1733646804617" duration="11981000" />
     </task>
     <task id="LOCAL-00001" summary="try">
       <option name="closed" value="true" />
@@ -223,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733650397954</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="docker working">
+      <option name="closed" value="true" />
+      <created>1733653802608</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733653802608</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
