@@ -20,26 +20,13 @@ class LlamaCppServer:
         self.host = host
         self.port = port
         self.process = None
-        self.llama_server_path = GLOBALS.llama_server_path
+        self.llama_server_path = '/app/llama.cpp'
 
 
     def start(self):
 
         if not os.path.exists(self.llama_server_path) or not os.access(self.llama_server_path, os.X_OK):
             print(f"{self.llama_server_path} does not exist or is not executable. Running make...")
-
-        if not os.path.exists(self.llama_server_path):
-            print(f"Error: {self.llama_server_path} does not exist")
-            return None
-
-        if not os.access(self.llama_server_path, os.X_OK):
-            # Try to make the file executable
-            try:
-                os.chmod(self.llama_server_path, 0o755)
-                print(f"Made {self.llama_server_path} executable")
-            except Exception as e:
-                print(f"Failed to make {self.llama_server_path} executable: {e}")
-                return None
 
             # Run make llama-server
             make_cmd = ['make', 'llama-server']
@@ -59,7 +46,7 @@ class LlamaCppServer:
 
         # Proceed with starting the server
         server_cmd = [
-            self.llama_server_path,
+            self.llama_server_path  + "/llama-server",
             '-m', GLOBALS.gpt_model_path,
             '-c', str(GLOBALS.max_context_length),
             '--host', self.host,
@@ -177,4 +164,3 @@ class GPTServer:
             return response.json()['choices'][0]['message']['content']
         except Exception as e:
             print(f"Query failed: {e}")
-            raise

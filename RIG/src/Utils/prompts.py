@@ -310,7 +310,7 @@ def prompt_json_gemma_v5(free_text, type_name, schema, description):
     from chat gpt
     """
     prompt = f"""
-    Extract information from the provided text and format it according to the given JSON schema. If a field is not mentioned in the text, set its value to "null". Follow the schema exactly.
+    Extract information from the provided text and format it according to the given JSON schema. If a field is not mentioned in the text, set its value to "null" (with quotes). Follow the schema exactly.
     
     Example 1:
     - Free text: 

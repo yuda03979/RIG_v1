@@ -22,10 +22,14 @@ Requires-Dist: gradio
 
 # Installation
 
+```angular2html
+git lfs install
+```
 ### - downlads (if using internet):
 ```
 curl -L -O https://huggingface.co/lmstudio-community/gemma-2-2b-it-GGUF/resolve/main/gemma-2-2b-it-Q8_0.gguf
 ```
+
 ```
    git clone https://huggingface.co/BAAI/bge-m3
 ```

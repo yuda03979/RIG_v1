@@ -75,9 +75,9 @@ class RuleInstanceGenerator:
             n_threads=GLOBALS.n_threads
     ):
         try:
-            GLOBALS.max_context_length = max_context_length
-            GLOBALS.max_new_tokens = max_new_tokens
-            GLOBALS.n_threads = n_threads
+            GLOBALS.max_context_length = int(max_context_length)
+            GLOBALS.max_new_tokens = int(max_new_tokens)
+            GLOBALS.n_threads = int(n_threads)
             MODELS.gemma_api = GemmaApi()  # GPTServer()  #
             return True
         except:
@@ -131,26 +131,30 @@ class RuleInstanceGenerator:
         return response
 
     def add_rule_types_from_folder(self, rule_types_directory=None):
-        if isinstance(rule_types_directory, str):
-            if not rule_types_directory.endswith("/"):
-                rule_types_directory += "/"
-            rule_types_loaded = []
-            for file_name in os.listdir(rule_types_directory):
-                if file_name.endswith(".json"):
-                    rule_types_loaded.append(file_name)
-                    if not self.new_rule_type(rule_types_directory + file_name):
-                        return f"loading don't complete. error with: {file_name}"
-            return f"rule_types_loaded: {rule_types_loaded}"
-        return "no folder provided"
+        try:
+            if isinstance(rule_types_directory, str):
+                if not rule_types_directory.endswith("/"):
+                    rule_types_directory += "/"
+                rule_types_loaded = []
+                for file_name in os.listdir(rule_types_directory):
+                    if file_name.endswith(".json"):
+                        rule_types_loaded.append(file_name)
+                        if not self.new_rule_type(rule_types_directory + file_name):
+                            return f"in  add_rule_types_from_folder, loading don't complete. error with: {file_name}"
+                print(f"rule_types_loaded: {rule_types_loaded}")
+                return f"rule_types_loaded: {rule_types_loaded}"
+        except Exception as e:
+            return f"in add_rule_types_from_folder, error occur: {e}"
+        return "in add_rule_types_from_folder, no folder provided"
 
     def tweak_rag_parameters(self, rag_threshold=GLOBALS.rag_threshold, rag_difference=GLOBALS.rag_difference):
         GLOBALS.rag_threshold = rag_threshold
         GLOBALS.rag_difference = rag_difference
         return True
 
-    def get_rule_types(self):
+    def get_rule_types_names(self):
         return GLOBALS.db_manager.get_all_types_names()
 
-    def feedback(self, fb):
+    def feedback(self, fb: str):
         log_interactions({"feedback": fb, "time": datetime.now()})
         return "thank you :)"

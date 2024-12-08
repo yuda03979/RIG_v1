@@ -1,5 +1,5 @@
 import random
-
+import os
 import numpy as np
 from llama_cpp import Llama
 import torch
@@ -14,6 +14,10 @@ torch.manual_seed(42)
 class GemmaApi:
 
     def __init__(self):
+        if GLOBALS.n_threads > os.cpu_count():
+            GLOBALS.n_threads = None
+
+
         self.model = Llama(
             model_path=GLOBALS.gpt_model_path,
             cache_dir=GLOBALS.project_directory,
@@ -24,7 +28,6 @@ class GemmaApi:
             flash_attention=True,
             verbose=False
         )
-
 
 
     def predict(self, prompt) -> str:

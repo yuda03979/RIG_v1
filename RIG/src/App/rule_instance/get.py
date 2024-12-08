@@ -33,6 +33,11 @@ class Get:
 
         response["model_response"], response["schema"] = self.generator.predict(response["type_name"], free_text)
         model_response, succeed = get_dict(response["model_response"])
+
+        # if did not succeed, we give it to the model back, only one time.
+        if not succeed:
+            response["model_response"], _ = self.generator.predict(response["type_name"], response["model_response"])
+            model_response, succeed = get_dict(response["model_response"])
         if not succeed:
             response["error_message"] = "error! can't extract json from model response"
             return response

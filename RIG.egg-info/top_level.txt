@@ -1,2 +1,1 @@
 RIG
-project_directory

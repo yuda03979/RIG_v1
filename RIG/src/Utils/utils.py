@@ -13,6 +13,7 @@ from RIG.globals import GLOBALS
 
 def get_dict(input_string):
     # Use regex to find content between { and } that looks like a valid JSON
+    input_string = re.sub(r"[\t\n]", "", input_string)
     match = re.search(r'\{[^}]*\}', input_string)
 
     if not match:
@@ -27,11 +28,7 @@ def get_dict(input_string):
     except json.JSONDecodeError:
         # If standard parsing fails, try some custom parsing
         try:
-            # Replace 'null' strings with actual None
-            json_str = json_str.replace("'", '"')
-            json_str = json_str.replace('null', '"null"')
-            json_str = json_str.replace('None', '"null"')
-            json_str = json_str.replace('"None"', '"null"')
+            json_str = re.sub(r"(None|null|'None'|\"None\"|'null'|\"null\")", '"null"', json_str)
             # Use ast for more flexible parsing
             import ast
             parsed_dict = ast.literal_eval(json_str)

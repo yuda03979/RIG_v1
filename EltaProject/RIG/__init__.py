@@ -1,1 +1,0 @@
-from .rule_instance_generator import RuleInstanceGenerator

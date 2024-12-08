@@ -18,4 +18,3 @@ RIG/src/Utils/gpt_server.py
 RIG/src/Utils/prompts.py
 RIG/src/Utils/rag_api.py
 RIG/src/Utils/utils.py
-project_directory/__init__.py

@@ -1,27 +1,22 @@
 # getting started
 
-### roadmap:
-- the package is in EltaProject folder.
-- the benchmark folder its for the data, evaluation, and maybe more.
-
-
 # Installation
 
-### - downlads (if using internet):
- download the model and place it in benchmark/data_directory
-```
- https://huggingface.co/lmstudio-community/gemma-2-2b-it-GGUF?show_file_info=gemma-2-2b-it-Q8_0.gguf
+```angular2html
+git lfs install
 ```
 
-in the first run, make sure you have internet acces for downloading the other data it need.
+if using the package and not the docker:
+## - downlads (if using internet):
+gemma:
 ```
-        self.model = SentenceTransformer(model_name_or_path=
-                                         "BAAI/bge-m3", trust_remote_code=True, cache_folder=???)
-        print("model loaded")
-        model_path = "?"
-        self.model.save(model_path + "BAAI/bge-m3", model_name="BAAI/bge-m3")
+curl -L -O https://huggingface.co/lmstudio-community/gemma-2-2b-it-GGUF/resolve/main/gemma-2-2b-it-Q8_0.gguf
 ```
-### - steps:
+rag:
+```
+git clone https://huggingface.co/BAAI/bge-m3
+```
+## - steps:
 1. place the data_directory in your desire place.
 2. RECOMMENDED: in EltaProject/globals.py, set the data_directory and the db_file_name. the data_directory should be "/bla/bla/", and the db_file_name should be "blabla.csv".
 3. with your terminal, go to EltaProject folder and run:
