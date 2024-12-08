@@ -5,112 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af38b4dc-f8a6-4b88-8aea-5460b43bf677" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README-DOCKER.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/generation_eval (2).py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/EltaProject_V1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG.egg-info/PKG-INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG.egg-info/SOURCES.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG.egg-info/dependency_links.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG.egg-info/requires.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG.egg-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/globals.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/rule_instance_generator.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/src/App/new_type.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/src/App/rule_instance/classification.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/src/App/rule_instance/generation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/src/App/rule_instance/get.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/src/App/rule_instance/post_processing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/src/Utils/GUI.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/src/Utils/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/src/Utils/db_manager.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/src/Utils/gemma_api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/src/Utils/gpt_server.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/src/Utils/prompts.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/src/Utils/rag_api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/src/Utils/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/RIG/src/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/EltaProject/setup.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/RIG.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/RIG.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG.egg-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/RIG.egg-info/top_level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RIG/globals.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/globals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RIG/rule_instance_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/rule_instance_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG/src/App/rule_instance/get.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/App/rule_instance/get.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG/src/Utils/gemma_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/Utils/gemma_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG/src/Utils/gpt_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/Utils/gpt_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG/src/Utils/prompts.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/Utils/prompts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG/src/Utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/Utils/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data_directory/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data_directory/db_data.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data_directory/llama.cpp/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data_directory/llama.cpp/examples/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data_directory/llama.cpp/examples/jeopardy/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data_directory/llama.cpp/examples/llava/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data_directory/llama.cpp/examples/server/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data_directory/llama.cpp/examples/server/bench/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data_directory/llama.cpp/examples/server/tests/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data_directory/llama.cpp/examples/server/tests/unit/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data_directory/llama.cpp/gguf-py/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data_directory/llama.cpp/gguf-py/examples/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/data_directory/llama.cpp/scripts/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/classification_eval.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/classification_eval_jup.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/data_yuda.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/api_rate_limit_reached.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/attack_overview.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/betrayal_risk.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/bomb_failure.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/command_incompetence.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/corruption_scandal.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/covert_agent.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/defection_threat.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/disk_space_warning.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/disloyal_soldier.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/encryption_flaw.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/equipment_malfunction.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/fire_control.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/launch_failure.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/leadership_breakdown.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/memory_usage_high.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/missile_failure.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/missile_malfunction.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/password_expiry.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/platoon_report.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/radar_error_monitoring.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/satellite_disruption.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/supply_shortage.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/suspected_person.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/system_failure.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/data/rule_types/temperature_threshold_exceeded.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/generation_eval.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/evaluation/try.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classification_output.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_directory/.logs/logs.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_directory/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_directory/llama.cpp/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_directory/llama.cpp/examples/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_directory/llama.cpp/examples/jeopardy/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_directory/llama.cpp/examples/llava/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_directory/llama.cpp/examples/server/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_directory/llama.cpp/examples/server/bench/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_directory/llama.cpp/examples/server/tests/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_directory/llama.cpp/examples/server/tests/unit/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_directory/llama.cpp/gguf-py/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_directory/llama.cpp/gguf-py/examples/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_directory/llama.cpp/scripts/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/system_failure_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/generation_eval (2).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/generation_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/generation_eval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/try.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +197,7 @@
       <workItem from="1733479560245" duration="87000" />
       <workItem from="1733483301059" duration="11584000" />
       <workItem from="1733585635377" duration="6290000" />
-      <workItem from="1733646804617" duration="3101000" />
+      <workItem from="1733646804617" duration="6914000" />
     </task>
     <task id="LOCAL-00001" summary="try">
       <option name="closed" value="true" />
@@ -303,7 +207,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733479622533</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="docker working">
+      <option name="closed" value="true" />
+      <created>1733649989969</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733649989969</updated>
+    </task>
+    <task id="LOCAL-00003" summary="docker working">
+      <option name="closed" value="true" />
+      <created>1733650397954</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733650397954</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,7 +234,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="try" />
-    <option name="LAST_COMMIT_MESSAGE" value="try" />
+    <MESSAGE value="docker working" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker working" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RIG_v1$utils.coverage" NAME="utils Coverage Results" MODIFIED="1733484109579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RIG/src/Utils" />

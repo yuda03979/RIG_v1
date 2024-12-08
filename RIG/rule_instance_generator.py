@@ -13,9 +13,9 @@ from RIG.src.Utils.gemma_api import GemmaApi
 from RIG.src.Utils.gpt_server import GPTServer
 
 
-def set_globals(project_directory, rag_model_path, gpt_model_path, llama_server_path, db_path, rag_difference, rag_threshold, max_context_length, max_new_tokens,
+def set_globals(project_directory, rag_model_path, gpt_model_path, llama_server_path, db_file_name, rag_difference, rag_threshold, max_context_length, max_new_tokens,
                 n_threads):
-    GLOBALS.db_manager = DBManager(project_directory + GLOBALS.db_path)
+    GLOBALS.db_manager = DBManager(project_directory + GLOBALS.db_file_name)
     GLOBALS.project_directory = project_directory
     GLOBALS.gpt_model_path = gpt_model_path
     GLOBALS.rag_model_path = rag_model_path
@@ -35,7 +35,7 @@ class RuleInstanceGenerator:
                  gpt_model_path=GLOBALS.gpt_model_path,
                  llama_server_path=GLOBALS.llama_server_path,
                  rule_types_directory=None,
-                 db_path=GLOBALS.db_path,
+                 db_file_name=GLOBALS.db_file_name,
                  rag_difference=GLOBALS.rag_difference,
                  rag_threshold=GLOBALS.rag_threshold,
                  max_context_length=GLOBALS.max_context_length,
@@ -43,7 +43,7 @@ class RuleInstanceGenerator:
                  n_threads=GLOBALS.n_threads,
                  ):
 
-        set_globals(project_directory, rag_model_path, gpt_model_path, llama_server_path, db_path, rag_difference, rag_threshold, max_context_length, max_new_tokens,
+        set_globals(project_directory, rag_model_path, gpt_model_path, llama_server_path, db_file_name, rag_difference, rag_threshold, max_context_length, max_new_tokens,
                     n_threads)
         self.globals = GLOBALS
         MODELS.rag_api = RagApi()

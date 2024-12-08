@@ -38,7 +38,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Switch to the non-privileged user to run the application.
 USER appuser
 
-
 # Copy the source code into the container.
 COPY . .
 

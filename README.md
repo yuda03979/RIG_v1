@@ -41,42 +41,29 @@ from RIG import RuleInstanceGenerator
 
 
 ```python
-# all the parameters are optional, except the data_directory, unless you change it in the globals. it is also recommended to change db_file_name
+# (required means that you can chnge it in globlas.py and it will not be required.)
 
 rig = RuleInstanceGenerator(
-    data_directory="/Users/yuda/PycharmProjects/EltaBenchmark/data_directory/",  # data_directory="/.../" 
-    db_file_name="db_data.csv"  # db_file_name="blabla.csv"
+    project_directory="",  # required
+    gpt_model_path="", # required
+    rag_model_path="", # required
+    rule_types_directory="" # optional. if you want to load rule-types from directory.
 )
 ```
-
-here you will see some lines. 
-its OK, dont worry.
-
-
- llama_new_context_with_model: n_ctx_per_seq (1024) < n_ctx_train (8192) -- the full capacity of the model will not be utilized
- ggml_metal_init: skipping kernel_get_rows_bf16                     (not supported)
- ggml_metal_init: skipping kernel_mul_mv_bf16_f32                   (not supported)
- ggml_metal_init: skipping kernel_mul_mv_bf16_f32_1row              (not supported) 
- {...} 
-
 
 ```python
 
 
 # if you want to adjust the parameters
-rig2 = RuleInstanceGenerator(
-    data_directory="/Users/yuda/PycharmProjects/EltaBenchmark/data_directory/",
-    db_file_name="db_data.csv",
+rig_another_example = RuleInstanceGenerator(
+    project_directory="/Users/yuda/PycharmProjects/EltaBenchmark/data_directory/",
     rag_threshold=0.5,
     max_context_length=1024,
     max_new_tokens=512,
     n_threads=5
 )
 ```
- llama_new_context_with_model: n_ctx_per_seq (1024) < n_ctx_train (8192) -- the full capacity of the model will not be utilized
- ggml_metal_init: skipping kernel_get_rows_bf16                     (not supported)
- ggml_metal_init: skipping kernel_mul_mv_bf16_f32                   (not supported)
- {...}
+
 
 ## adding new rule type
 
@@ -147,6 +134,10 @@ rig.get_rule_types()
 
 
 ## get rule instance from free text
+
+```angular2html
+rig.init_gemma_model()
+```
 
 
 ```python
@@ -222,7 +213,7 @@ ggml_metal_init: skipping kernel_mul_mv_bf16_f32                   (not supporte
 
 To create a public link, set `share=True` in `launch()`.
 
-<img src="gui.png" alt="GUI" width="10000" />
+<img src="readme_imgs/gui.png" alt="GUI" width="10000" />
 
 ### eval of classification
-<img src="classification_output.png" alt="classification" width="10000" />
+<img src="readme_imgs/classification_output.png" alt="classification" width="10000" />
