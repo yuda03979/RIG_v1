@@ -1,4 +1,27 @@
-### Building and running your application
+
+# Installation
+
+* git - big files
+```angular2html
+git lfs install
+```
+* install docker
+
+
+## - downlads (if using internet):
+* gemma:
+```
+curl -L -O https://huggingface.co/lmstudio-community/gemma-2-2b-it-GGUF/resolve/main/gemma-2-2b-it-Q8_0.gguf
+```
+* rag:
+```
+git clone https://huggingface.co/BAAI/bge-m3
+```
+### Building and running
+
+- (before that, read the how to use section).
+
+in your terminal, go to the project directory.
 
 When you're ready, start your application by running:
 `docker compose up --build`.
@@ -20,3 +43,11 @@ docs for more detail on building and pushing.
 
 ### References
 * [Docker's Python guide](https://docs.docker.com/language/python/)
+
+
+
+## how to use:
+- place the correct pathes in the .env file - check out what is required changes.
+
+- make sure to `init_gemma_model` before using.
+
