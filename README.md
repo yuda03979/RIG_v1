@@ -5,6 +5,11 @@
 ```angular2html
 git lfs install
 ```
+or:
+```angular2html
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt install git-lfs
+```
 
 if using the package and not the docker:
 ## - downlads (if using internet):
@@ -18,19 +23,13 @@ git clone https://huggingface.co/BAAI/bge-m3
 ```
 ## - steps:
 1. place the data_directory in your desire place.
-2. RECOMMENDED: in EltaProject/globals.py, set the data_directory and the db_file_name. the data_directory should be "/bla/bla/", and the db_file_name should be "blabla.csv".
-3. with your terminal, go to EltaProject folder and run:
-   pip
-    ```sh
+2. with your terminal, go to the project folder and run:
+    ```
    pip install -e .
    ```
 
 ### - notes:
-* make sure you've installed the requirements.txt
-* make sure you use the same interpreter, you enter the paths in the correct way.
-* dont run those commands from jupiter notebook. can cause some problems.
-* to uninstall run: `pip uninstall RIG` 
-* let's go!
+* to uninstall run: `pip uninstall RIG`
 
 ## how to use:
 
@@ -47,57 +46,14 @@ rig = RuleInstanceGenerator(
     project_directory="",  # required
     gpt_model_path="", # required
     rag_model_path="", # required
-    rule_types_directory="" # optional. if you want to load rule-types from directory.
+    rule_types_directory="", # optional. if you want to load rule-types from directory.
+    rag_threshold=0.5, # oprional
+    max_context_length=1024, # optional
+    max_new_tokens=512, # optional
+    n_threads=5 # optional
 )
 ```
 
-```python
-
-
-# if you want to adjust the parameters
-rig_another_example = RuleInstanceGenerator(
-    project_directory="/Users/yuda/PycharmProjects/EltaBenchmark/data_directory/",
-    rag_threshold=0.5,
-    max_context_length=1024,
-    max_new_tokens=512,
-    n_threads=5
-)
-```
-
-
-## adding new rule type
-
-
-```python
-
-
-# return True or False
-succeed = rig.new_rule_type('system_failure_file.json')  # loading from file
-
-if succeed:
-    print("rule type added successfully")
-else:
-    print("error! failed to add the rule_type")
-```
-
-rule type added successfully
-
-
-
-```python
-import json
-with open('system_failure_file.json', 'r') as file:
-    rule_type_dict = json.load(file)
-
-succeed = rig.new_rule_type(rule_type_dict)  # loading from dict
-
-
-if succeed:
-    print("rule type added successfully")
-else:
-    print("error! failed to add the rule_type")
-```
-rule type added successfully
 
 
 
@@ -192,6 +148,18 @@ output:
 rig.feedback(True)  # or 0.8, or what ever you can  
 ```
 thank you :)
+
+
+## run evaluation:
+```
+rig.evaluate(
+    data_dile_path="/Users/yuda/Desktop/RIG_v1/evaluation/data/data_yuda.csv",
+    output_directory="/Users/yuda/Desktop/RIG_v1/evaluation/output",
+    start_point = 0,
+    end_point = 1, # None = all the data
+    sleep_time_each_10_iter = 30
+)
+```
 
 
 

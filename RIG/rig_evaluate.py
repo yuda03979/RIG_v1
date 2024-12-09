@@ -222,7 +222,7 @@ def evaluate_func(
 
             try:
                 response, rig_response = predict(self, free_text)
-                print(i, rig_response)
+                # print(i, rig_response)
                 if not rig_response:
                     print('error')
                 expected, response = correct_prediction(expected, response)
