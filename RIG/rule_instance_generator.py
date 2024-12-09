@@ -12,7 +12,7 @@ from RIG.src.Utils.rag_api import RagApi
 from RIG.src.Utils.gemma_api import GemmaApi
 from RIG.src.Utils.gpt_server import GPTServer
 
-
+from RIG.rig_evaluate import *
 def set_globals(project_directory, rag_model_path, gpt_model_path, llama_server_path, db_file_name, rag_difference, rag_threshold, max_context_length, max_new_tokens,
                 n_threads):
     GLOBALS.db_manager = DBManager(project_directory + GLOBALS.db_file_name)
@@ -42,7 +42,8 @@ class RuleInstanceGenerator:
                  max_new_tokens=GLOBALS.max_new_tokens,
                  n_threads=GLOBALS.n_threads,
                  ):
-
+        if project_directory and not project_directory.endswith('/'):
+            project_directory += '/'
         set_globals(project_directory, rag_model_path, gpt_model_path, llama_server_path, db_file_name, rag_difference, rag_threshold, max_context_length, max_new_tokens,
                     n_threads)
         self.globals = GLOBALS
@@ -127,7 +128,10 @@ class RuleInstanceGenerator:
         current_time = datetime.now()
         response["time"] = f"{current_time.strftime('%Y-%m-%d')}|{current_time.strftime('%H:%M:%S')}"
         response["inference_time"] = time.time() - start_time
-        response["rag_score"] = response["rag_score"].item()
+        try:
+            response["rag_score"] = response["rag_score"].item()
+        except:
+            pass
         log_interactions(response)
         return response
 
@@ -159,3 +163,20 @@ class RuleInstanceGenerator:
     def feedback(self, fb: str):
         log_interactions({"feedback": fb, "time": datetime.now()})
         return "thank you :)"
+
+    def evaluate(
+        self,
+        data_dile_path,
+        output_directory,
+        start_point=0,
+        end_point=2,  # None - all the data
+        sleep_time_each_10_iter=30
+    ):
+        evaluate_func(
+            self,
+            data_dile_path=data_dile_path,
+            output_directory=output_directory,
+            start_point=start_point,
+            end_point=end_point,  # None - all the data
+            sleep_time_each_10=sleep_time_each_10_iter
+        )

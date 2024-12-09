@@ -8,16 +8,34 @@ load_dotenv(find_dotenv())
 
 app = FastAPI()
 
-project_directory = os.getenv("PROJECT_DIRECTORY") if os.getenv("PROJECT_DIRECTORY") != "" else None
-gpt_model_path = os.getenv("GPT_MODEL_PATH") if os.getenv("GPT_MODEL_PATH") != "" else None
-rag_model_path = os.getenv("RAG_MODEL_PATH") if os.getenv("RAG_MODEL_PATH") != "" else None
-llama_server_path = os.getenv("LLAMA_SERVER_PATH") if os.getenv("LLAMA_SERVER_PATH") != "" else None
-rule_types_directory = os.getenv("RULE_TYPES_DIRECTORY") if os.getenv("RULE_TYPES_DIRECTORY") != "" else None
-rag_difference = float(os.getenv("RAG_DIFFERENCE")) if os.getenv("RAG_DIFFERENCE") != "" else None
-rag_threshold = float(os.getenv("RAG_THRESHOLD")) if os.getenv("RAG_THRESHOLD") != "" else None
-max_context_length = int(os.getenv("MAX_CONTEXT_LENGTH")) if os.getenv("MAX_CONTEXT_LENGTH") != "" else None
-max_new_tokens = int(os.getenv("MAX_NEW_TOKENS")) if os.getenv("MAX_NEW_TOKENS") != "" else None
-n_threads = int(os.getenv("N_THREADS")) if os.getenv("N_THREADS") != "" else None
+
+def validate_path(env_var, var_name):
+    """Validate and return the path or None if invalid."""
+    if not env_var or not os.path.exists(env_var):
+        print(f"Warning: {var_name} is invalid or does not exist: {env_var}")
+        return None
+    return env_var
+
+
+def validate_numeric(env_var, var_name, cast_func, default=None):
+    try:
+        return cast_func(env_var) if env_var else default
+    except ValueError:
+        print(f"Warning: {var_name} is invalid: {env_var}")
+        return default
+
+
+project_directory = validate_path(os.getenv("PROJECT_DIRECTORY"), "PROJECT_DIRECTORY")
+gpt_model_path = validate_path(os.getenv("GPT_MODEL_PATH"), "GPT_MODEL_PATH")
+rag_model_path = validate_path(os.getenv("RAG_MODEL_PATH"), "RAG_MODEL_PATH")
+# llama_server_path = validate_path(os.getenv("LLAMA_SERVER_PATH"), "LLAMA_SERVER_PATH")
+rule_types_directory = validate_path(os.getenv("RULE_TYPES_DIRECTORY"), "RULE_TYPES_DIRECTORY")
+rag_difference = validate_numeric(os.getenv("RAG_DIFFERENCE"), "RAG_DIFFERENCE", float)
+rag_threshold = validate_numeric(os.getenv("RAG_THRESHOLD"), "RAG_THRESHOLD", float)
+max_context_length = validate_numeric(os.getenv("MAX_CONTEXT_LENGTH"), "MAX_CONTEXT_LENGTH", int)
+max_new_tokens = validate_numeric(os.getenv("MAX_NEW_TOKENS"), "MAX_NEW_TOKENS", int)
+n_threads = validate_numeric(os.getenv("N_THREADS"), "N_THREADS", int)
+
 
 
 
@@ -26,7 +44,7 @@ rig = rule_instance_generator.RuleInstanceGenerator(
     project_directory=project_directory,
     gpt_model_path=gpt_model_path,
     rag_model_path=rag_model_path,
-    llama_server_path=llama_server_path,
+    # llama_server_path=llama_server_path,
     rule_types_directory=rule_types_directory,
     rag_difference=rag_difference,
     rag_threshold=rag_threshold,

@@ -4,24 +4,6 @@ import pandas as pd
 import ast
 import time
 import json
-# from src.App.rule_instance.get import Get_rule_instance
-from RIG import RuleInstanceGenerator
-
-start_point = 0
-end_point = 2
-sleep_time_each_10 = 30
-
-# Initialize the rule instance generator
-rig =  RuleInstanceGenerator()
-rig.init_gemma_model()
-#
-# folder_path = "db/rule_types/"
-# for file_name in os.listdir(folder_path):
-#     if file_name.endswith(".json"):
-#         print(rig.new_rule_type(folder_path + file_name))
-
-csv_path = "data/data_yuda.csv"
-df_eval = pd.read_csv(csv_path)
 
 
 # Helper function to parse `free_text`
@@ -40,15 +22,6 @@ def parse_free_text(text):
         return [text.strip()]
 
 
-# Parse `excepted_response` and `free_text`
-df_eval["expected_response"] = df_eval["expected_response"].apply(ast.literal_eval)  # Convert strings to dictionaries
-df_eval["free_text"] = df_eval["free_text"].apply(parse_free_text)  # Handle plain strings and lists
-
-# Create eval_data_generation from the DataFrame
-eval_data_generation = [
-    (row["id"], row["rule_types_names"], row["expected_response"], row["free_text"])
-    for _, row in df_eval.iterrows()
-]
 
 
 # Helper Functions
@@ -71,10 +44,9 @@ def clean_text(text):
     return ''.join(char.lower() for char in text if char.isalnum())
 
 
-def predict(free_text):
-    """Predict rule instance using the rig."""
-    model_response = rig.get_rule_instance(free_text)
-
+def predict(self, free_text):
+    """Predict rule instance using the self."""
+    model_response = self.get_rule_instance(free_text)
     if model_response["is_error"] == True:
         print("error: ", model_response)
         return False, False
@@ -208,17 +180,39 @@ def find_differences(expected, response):
 
 
 
-error_df_param_numerical_binary_score = []
-error_df_param_verbal_binary_score = []
-error_df_rule_name_score = []
 
 
 # Evaluation Function
-def evaluate():
+def evaluate_func(
+        self,
+        data_dile_path,
+        output_directory,
+        start_point=0,
+        end_point=2,  # None - all the data
+        sleep_time_each_10=30
+):
+
+    df_eval = pd.read_csv(data_dile_path)
+    # Parse `excepted_response` and `free_text`
+    df_eval["expected_response"] = df_eval["expected_response"].apply(
+        ast.literal_eval)  # Convert strings to dictionaries
+    df_eval["free_text"] = df_eval["free_text"].apply(parse_free_text)  # Handle plain strings and lists
+
+    # Create eval_data_generation from the DataFrame
+    eval_data_generation = [
+        (row["id"], row["rule_types_names"], row["expected_response"], row["free_text"])
+        for _, row in df_eval.iterrows()
+    ]
+
+    error_df_param_numerical_binary_score = []
+    error_df_param_verbal_binary_score = []
+    error_df_rule_name_score = []
+
+
     rows = []
     for i, (row_id, type_name, expected, free_text_list) in tqdm.tqdm(enumerate(eval_data_generation[start_point:end_point]), total=len(eval_data_generation[start_point:end_point])):
         print(i)
-        if not i % 10:
+        if not i % 10 and i != 0:
             time.sleep(sleep_time_each_10)
         for free_text in free_text_list:
             # print(free_text)
@@ -227,7 +221,7 @@ def evaluate():
                 continue
 
             try:
-                response, rig_response = predict(free_text)
+                response, rig_response = predict(self, free_text)
                 print(i, rig_response)
                 if not rig_response:
                     print('error')
@@ -304,11 +298,32 @@ def evaluate():
     df_error_rule_name_score = pd.DataFrame(error_df_rule_name_score)
 
     # Return the results and the error DataFrames
-    return df_results, df_error_param_numerical_binary_score, df_error_param_verbal_binary_score, df_error_rule_name_score
+    file_path = generate_unique_filename(output_directory, "test_results")
+    df_results.to_csv(file_path, index=False)
+
+    file_path = generate_unique_filename(output_directory, "error_param_numerical_binary_score")
+    df_error_param_numerical_binary_score.to_csv(file_path, index=False)
+
+    file_path = generate_unique_filename(output_directory, "error_param_verbal_binary_score")
+    df_error_param_verbal_binary_score.to_csv(file_path, index=False)
+
+    file_path = generate_unique_filename(output_directory, "error_rule_name_score")
+    df_error_rule_name_score.to_csv(file_path, index=False)
+
+    print("without classification mistakes: ")
+    accuracy_results = calculate_accuracy(df_results[df_results["correct_type_name"] == 1])
+    print("with all the data: ")
+    accuracy_results_2 = calculate_accuracy(df_results)
+    file_path = generate_unique_filename(output_directory, "accuracy_results", 'txt')
+    # Save the accuracy metrics to a text file
+
+    with open(file_path, "w") as file:
+        file.write("Average Accuracy Metrics:\n")
+        for metric, value in accuracy_results.items():
+            file.write(f"{metric}: {value:.2%}\n")
 
 
 # Run the evaluation and collect the results
-df_results, df_error_param_numerical_binary_score, df_error_param_verbal_binary_score, df_error_rule_name_score = evaluate()
 def generate_unique_filename(directory, base_name, extension="csv"):
     """
     Generate a unique filename by appending a sequential number.
@@ -325,17 +340,7 @@ def generate_unique_filename(directory, base_name, extension="csv"):
         i += 1
 
 
-file_path = generate_unique_filename("output", "test_results")
-df_results.to_csv(file_path, index=False)
 
-file_path = generate_unique_filename("output", "error_param_numerical_binary_score")
-df_error_param_numerical_binary_score.to_csv(file_path, index=False)
-
-file_path = generate_unique_filename("output", "error_param_verbal_binary_score")
-df_error_param_verbal_binary_score.to_csv(file_path, index=False)
-
-file_path = generate_unique_filename("output", "error_rule_name_score")
-df_error_rule_name_score.to_csv(file_path, index=False)
 
 
 def calculate_accuracy(df):
@@ -361,14 +366,3 @@ def calculate_accuracy(df):
     return accuracy_metrics
 
 
-print("without classification mistakes: ")
-accuracy_results = calculate_accuracy(df_results[df_results["correct_type_name"] == 1])
-print("with all the data: ")
-accuracy_results_2 = calculate_accuracy(df_results)
-file_path = generate_unique_filename("output", "accuracy_results",'txt')
-# Save the accuracy metrics to a text file
-
-with open(file_path, "w") as file:
-    file.write("Average Accuracy Metrics:\n")
-    for metric, value in accuracy_results.items():
-        file.write(f"{metric}: {value:.2%}\n")

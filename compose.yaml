@@ -21,3 +21,4 @@ services:
       - ${RULE_TYPES_DIRECTORY}:${RULE_TYPES_DIRECTORY}
     env_file:
       - .env
+    user: root

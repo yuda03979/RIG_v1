@@ -15,6 +15,12 @@ Initialize Git Large File Storage (LFS):
 ```bash
 git lfs install
 ```
+or:
+```angular2html
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt install git-lfs
+```
+
 
 ### 2. Model Downloads (Optional)
 
@@ -40,6 +46,22 @@ git clone https://huggingface.co/BAAI/bge-m3
 
 ## Running the Application
 
+install docker
+```
+sudo snap install docker  
+```
+
+install docker compose
+```
+sudo apt-get install docker-compose-plugin
+```
+or:
+```angular2html
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+```
+output: ```Docker Compose version v2.29.1```
 ### Local Development
 Navigate to the project directory and run:
 ```bash
@@ -58,6 +80,8 @@ docker build -t myapp .
 ```
 
 #### Cross-Platform Build (e.g., Mac M1 to AMD64)
+
+
 ```bash
 docker build --platform=linux/amd64 -t myapp .
 ```
@@ -73,7 +97,7 @@ docker push myregistry.com/myapp
 
 ## Troubleshooting
 - Verify Docker and Docker Compose are correctly installed
-- Check environment variable configurations
+- Check environment variable configurations - they all must be correct, even if you don't use them.
 - Ensure model files are downloaded and placed correctly
 
 ## Notes
