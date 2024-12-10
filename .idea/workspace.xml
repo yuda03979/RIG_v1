@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af38b4dc-f8a6-4b88-8aea-5460b43bf677" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/RIG/src/App/rule_instance/confidence.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG/rig_evaluate.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/rig_evaluate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/how_to.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/how_to.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="yuda_v3" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,8 +65,8 @@
     "Python.main.executor": "Run",
     "Python.utils.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "yuda__v3",
-    "last_opened_file_path": "/Users/yuda/Desktop/RIG_v1/RIG",
+    "git-widget-placeholder": "yuda__1.0.0",
+    "last_opened_file_path": "/Users/yuda/Desktop/RIG_v1/RIG/src/App/rule_instance",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -194,7 +192,8 @@
       <workItem from="1733483301059" duration="11584000" />
       <workItem from="1733585635377" duration="6290000" />
       <workItem from="1733646804617" duration="24121000" />
-      <workItem from="1733680246144" duration="13381000" />
+      <workItem from="1733680246144" duration="15011000" />
+      <workItem from="1733822384011" duration="334000" />
     </task>
     <task id="LOCAL-00001" summary="try">
       <option name="closed" value="true" />
@@ -244,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733737764511</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="chat_gpt">
+      <option name="closed" value="true" />
+      <created>1733747394872</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733747394872</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
