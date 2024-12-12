@@ -24,6 +24,7 @@ class DBManager:
             df = pd.DataFrame(
                 columns=["type_name", "schema", "description", "default_values", "default_rule_instance", "rule_type",
                          "embedding"])
+            self.update_db()
         return df
 
     def update_db(self) -> None:

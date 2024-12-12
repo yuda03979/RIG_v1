@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af38b4dc-f8a6-4b88-8aea-5460b43bf677" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/RIG/src/App/rule_instance/confidence.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.Docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.Docker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RIG/src/Utils/db_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/Utils/db_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,25 +60,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.generation_eval (2).executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.utils.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "yuda__1.0.0",
-    "last_opened_file_path": "/Users/yuda/Desktop/RIG_v1/RIG/src/App/rule_instance",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.generation_eval (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.utils.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;yuda__1.0.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/yuda/Desktop/RIG_v1/RIG/src/App/rule_instance&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/RIG/src/App/rule_instance" />
       <recent name="$PROJECT_DIR$/RIG" />
       <recent name="$PROJECT_DIR$/RIG/src/Utils" />
       <recent name="$PROJECT_DIR$" />
@@ -193,7 +195,8 @@
       <workItem from="1733585635377" duration="6290000" />
       <workItem from="1733646804617" duration="24121000" />
       <workItem from="1733680246144" duration="15011000" />
-      <workItem from="1733822384011" duration="334000" />
+      <workItem from="1733822384011" duration="3334000" />
+      <workItem from="1733928312809" duration="11080000" />
     </task>
     <task id="LOCAL-00001" summary="try">
       <option name="closed" value="true" />
@@ -251,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733747394872</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="chat_gpt">
+      <option name="closed" value="true" />
+      <created>1733822721004</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733822721004</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
