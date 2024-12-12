@@ -6,7 +6,7 @@ from yaml import SafeLoader
 import os
 import csv
 from datetime import datetime
-from RIG.globals import GLOBALS
+from RIG.globals import GLOBALS,MODELS
 
 
 
@@ -69,3 +69,37 @@ def log_interactions(response):
             current_time.strftime('%H:%M:%S'),
             str(response)
         ])
+
+def log_question_and_answer(response):
+
+    """
+    Log a question, answer, and its embedding to the log file.
+    :param question: The input question.
+    :param answer: The corresponding answer.
+    """
+    rag_api = MODELS.rag_api
+
+    log_dir = os.path.join(GLOBALS.project_directory, 'logs')
+    log_file = os.path.join(log_dir, "logs_examples2.csv")
+
+    if not os.path.exists(log_file):
+        with open(log_file, mode="w", newline="", encoding="utf-8") as file:
+            writer = csv.writer(file)
+            writer.writerow(["Timestamp", "Question", "Answer", "Embedding","Type_Name"])  # Headers
+    question = response["free_text"]
+    answer = response["model_response"]
+    type_name = response["type_name"]
+    embedding_json, embedding = rag_api.get_embedding(question)
+
+    with open(log_file, mode="a", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        writer.writerow([
+            'id',
+            datetime.now().isoformat(),
+            question,
+            answer,
+            embedding_json,
+            type_name
+
+        ])
+    print(f"Logged question and answer: {question}")

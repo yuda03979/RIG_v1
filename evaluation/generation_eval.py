@@ -12,8 +12,17 @@ end_point = 2
 sleep_time_each_10 = 30
 
 # Initialize the rule instance generator
-rig =  RuleInstanceGenerator()
-rig.init_gemma_model()
+rig =  RuleInstanceGenerator(
+    project_directory="/home/mefathim/PycharmProjects/RIG_v4/project_directory",  # required
+    gpt_model_path="/home/mefathim/PycharmProjects/RIG_v2/benchmark/data_directory/gemma-2-2b-it-Q8_0.gguf", # required
+    rag_model_path="/home/mefathim/PycharmProjects/bge-m3", # required
+    rule_types_directory="", # optional. if you want to load rule-types from directory.
+    rag_threshold=0.5, # oprional
+    max_context_length=1024, # optional
+    max_new_tokens=1024, # optional
+    n_threads=5 # optional
+)
+rig.init_gemma_model(max_context_length=1024 + 1024)
 #
 # folder_path = "db/rule_types/"
 # for file_name in os.listdir(folder_path):
@@ -71,9 +80,9 @@ def clean_text(text):
     return ''.join(char.lower() for char in text if char.isalnum())
 
 
-def predict(free_text):
+def predict(free_text,row_id):
     """Predict rule instance using the rig."""
-    model_response = rig.get_rule_instance(free_text)
+    model_response = rig.get_rule_instance(free_text,row_id)
 
     if model_response["is_error"] == True:
         print("error: ", model_response)
@@ -216,7 +225,7 @@ error_df_rule_name_score = []
 # Evaluation Function
 def evaluate():
     rows = []
-    for i, (row_id, type_name, expected, free_text_list) in tqdm.tqdm(enumerate(eval_data_generation[start_point:end_point]), total=len(eval_data_generation[start_point:end_point])):
+    for i, (row_id, type_name, expected, free_text_list) in tqdm.tqdm(enumerate(eval_data_generation[::5]), total=len(eval_data_generation[::5])):
         print(i)
         if not i % 10:
             time.sleep(sleep_time_each_10)
@@ -227,7 +236,7 @@ def evaluate():
                 continue
 
             try:
-                response, rig_response = predict(free_text)
+                response, rig_response = predict(free_text,row_id)
                 print(i, rig_response)
                 if not rig_response:
                     print('error')
@@ -369,6 +378,10 @@ file_path = generate_unique_filename("output", "accuracy_results",'txt')
 # Save the accuracy metrics to a text file
 
 with open(file_path, "w") as file:
-    file.write("Average Accuracy Metrics:\n")
+    file.write("without classification mistakes:\n Average Accuracy Metrics:\n")
     for metric, value in accuracy_results.items():
+        file.write(f"{metric}: {value:.2%}\n")
+
+    file.write("with all the data:\n Average Accuracy Metrics:\n")
+    for metric, value in accuracy_results_2.items():
         file.write(f"{metric}: {value:.2%}\n")

@@ -6,16 +6,18 @@ from RIG.src.Utils.db_manager import DBManager
 from RIG.globals import GLOBALS, MODELS
 from RIG.src.App.rule_instance.get import Get
 from RIG.src.App.new_type import NewType
-from RIG.src.Utils.utils import log_interactions
+from RIG.src.Utils.utils import log_interactions, log_question_and_answer
 
 from RIG.src.Utils.rag_api import RagApi
 from RIG.src.Utils.gemma_api import GemmaApi
 from RIG.src.Utils.gpt_server import GPTServer
-
 from RIG.rig_evaluate import *
+
+
 def set_globals(project_directory, rag_model_path, gpt_model_path, llama_server_path, db_file_name, rag_difference, rag_threshold, max_context_length, max_new_tokens,
                 n_threads):
     GLOBALS.db_manager = DBManager(project_directory + GLOBALS.db_file_name)
+    # GLOBALS.db_manager2 = DBManager(project_directory + GLOBALS.db_file_name2)
     GLOBALS.project_directory = project_directory
     GLOBALS.gpt_model_path = gpt_model_path
     GLOBALS.rag_model_path = rag_model_path
@@ -85,7 +87,7 @@ class RuleInstanceGenerator:
             return False
 
 
-    def get_rule_instance(self, free_text: str) -> dict:
+    def get_rule_instance(self, free_text: str,row_id = "id") -> dict:
         """
         Processes user input and returns a response with its validation status.
 
@@ -117,7 +119,7 @@ class RuleInstanceGenerator:
 
         if any(char.isalpha() for char in free_text) and len(free_text) > 10:
             try:
-                response = self.get_instance.predict(free_text)
+                response = self.get_instance.predict(free_text,row_id)
 
             except Exception as e:
                 response["error_message"] = f"Processing failed: {type(e).__name__}, {str(e)}"
@@ -133,6 +135,9 @@ class RuleInstanceGenerator:
         except:
             pass
         log_interactions(response)
+        if not response["is_error"]:
+            log_interactions(response)
+            log_question_and_answer(response)
         return response
 
     def add_rule_types_from_folder(self, rule_types_directory=None):

@@ -221,7 +221,7 @@ def evaluate_func(
                 continue
 
             try:
-                response, rig_response = predict(self, free_text)
+                response, rig_response = predict(self, free_text,row_id)
                 # print(i, rig_response)
                 if not rig_response:
                     print('error')

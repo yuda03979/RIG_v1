@@ -4,7 +4,7 @@ import os
 class Globals:
 
     def __init__(self):
-        self.project_directory = "/Users/yuda/PycharmProjects/EltaProject_v1/archive/data_directory/" # ensure the / in the end
+        self.project_directory = "/home/mefathim/PycharmProjects/RIG_v4/project_directory/" # ensure the / in the end
 
         self.llama_server_path = "/Users/yuda/PycharmProjects/EltaProject_v1/archive/data_directory/llama.cpp/llama-server"
         self.rag_model_path = "/Users/yuda/PycharmProjects/EltaProject_v1/archive/data_directory/BAAI/bge-m3"
@@ -12,7 +12,7 @@ class Globals:
 
         self.db_file_name = "db_data.csv"
         self.db_manager = None  # temporarily
-
+        self.db_manager2 = None
         self.rag_difference = 0.001
         self.rag_threshold = 0.5
         self.max_context_length = 124 + 512

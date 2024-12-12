@@ -13,7 +13,7 @@ class Get:
         self.classifier = Classification()
         self.generator = Generation()
 
-    def predict(self, free_text):
+    def predict(self, free_text,row_id = 'id'):
 
         response = {
             "rule_instance": None,
@@ -23,6 +23,7 @@ class Get:
             "type_name": None,
             "rag_score": None,
             "model_response": None,
+            "example":None,
             "schema": None
         }
 
@@ -31,13 +32,14 @@ class Get:
             response["error_message"] = "error! can't identify ruleType. no ruleType exist or didnt pass the threshold."
             return response
 
-        response["model_response"], response["schema"] = self.generator.predict(response["type_name"], free_text)
+        response["model_response"], response["schema"],response["example"] = self.generator.predict(response["type_name"], free_text,row_id)
         model_response, succeed = get_dict(response["model_response"])
 
         # if did not succeed, we give it to the model back, only one time.
         if not succeed:
             response["model_response"], _ = self.generator.predict(response["type_name"], response["model_response"])
             model_response, succeed = get_dict(response["model_response"])
+            
         if not succeed:
             response["error_message"] = "error! can't extract json from model response"
             return response
