@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af38b4dc-f8a6-4b88-8aea-5460b43bf677" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/how_to_docker.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -33,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="yuda_1.10" />
+
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,23 +62,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.generation_eval (2).executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.utils.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;yuda__1.0.0&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/yuda/Desktop/RIG_v1/RIG/src/App/rule_instance&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.generation_eval (2).executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.utils.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "yuda__1.1.0",
+    "last_opened_file_path": "/Users/yuda/Desktop/RIG_v1/RIG/src/App/rule_instance",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/RIG/src/App/rule_instance" />
@@ -157,10 +161,17 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.utils" />
+
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.generation_eval (2)" />
+        <item itemvalue="Python.utils" />
+        <item itemvalue="Python.main" />
+=======
         <item itemvalue="Python.main" />
         <item itemvalue="Python.generation_eval (2)" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.generation_eval (2)" />
+
       </list>
     </recent_temporary>
   </component>
@@ -200,6 +211,9 @@
       <workItem from="1734087523325" duration="6000" />
       <workItem from="1734193639451" duration="642000" />
       <workItem from="1734253648846" duration="1034000" />
+
+      <workItem from="1734280176189" duration="6921000" />
+
     </task>
     <task id="LOCAL-00001" summary="try">
       <option name="closed" value="true" />

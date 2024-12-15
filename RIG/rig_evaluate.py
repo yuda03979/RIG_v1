@@ -185,14 +185,14 @@ def find_differences(expected, response):
 # Evaluation Function
 def evaluate_func(
         self,
-        data_dile_path,
+        data_file_path,
         output_directory,
         start_point=0,
         end_point=2,  # None - all the data
         sleep_time_each_10=30
 ):
 
-    df_eval = pd.read_csv(data_dile_path)
+    df_eval = pd.read_csv(data_file_path)
     # Parse `excepted_response` and `free_text`
     df_eval["expected_response"] = df_eval["expected_response"].apply(
         ast.literal_eval)  # Convert strings to dictionaries
