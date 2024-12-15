@@ -1,0 +1,15 @@
+services:
+  program:
+    build:
+      context: .
+    container_name: rig
+    ports:
+      - "8000:8000"  # Map host port 8080 to container port 80
+    volumes:
+      - ${PROJECT_DIRECTORY}:${PROJECT_DIRECTORY}
+      - ${GPT_MODEL_PATH}:${GPT_MODEL_PATH}
+      - ${RAG_MODEL_PATH}:${RAG_MODEL_PATH}
+      - ${RULE_TYPES_DIRECTORY}:${RULE_TYPES_DIRECTORY}
+    env_file:
+      - .env
+    user: root

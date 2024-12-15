@@ -13,7 +13,6 @@ def validate_path(env_var, var_name):
     """Validate and return the path or None if invalid."""
     if not env_var or not os.path.exists(env_var):
         print(f"Warning: {var_name} is invalid or does not exist: {env_var}")
-        return None
     return env_var
 
 
@@ -28,7 +27,6 @@ def validate_numeric(env_var, var_name, cast_func, default=None):
 project_directory = validate_path(os.getenv("PROJECT_DIRECTORY"), "PROJECT_DIRECTORY")
 gpt_model_path = validate_path(os.getenv("GPT_MODEL_PATH"), "GPT_MODEL_PATH")
 rag_model_path = validate_path(os.getenv("RAG_MODEL_PATH"), "RAG_MODEL_PATH")
-# llama_server_path = validate_path(os.getenv("LLAMA_SERVER_PATH"), "LLAMA_SERVER_PATH")
 rule_types_directory = validate_path(os.getenv("RULE_TYPES_DIRECTORY"), "RULE_TYPES_DIRECTORY")
 rag_difference = validate_numeric(os.getenv("RAG_DIFFERENCE"), "RAG_DIFFERENCE", float)
 rag_threshold = validate_numeric(os.getenv("RAG_THRESHOLD"), "RAG_THRESHOLD", float)
@@ -44,7 +42,6 @@ rig = rule_instance_generator.RuleInstanceGenerator(
     project_directory=project_directory,
     gpt_model_path=gpt_model_path,
     rag_model_path=rag_model_path,
-    # llama_server_path=llama_server_path,
     rule_types_directory=rule_types_directory,
     rag_difference=rag_difference,
     rag_threshold=rag_threshold,
