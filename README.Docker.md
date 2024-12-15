@@ -54,7 +54,7 @@ sudo snap install docker
 ### Local Development
 Navigate to the project directory and run:
 ```bash
-docker compose cuild
+docker compose build
 ```
 
 ### to run it:

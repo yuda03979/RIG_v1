@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af38b4dc-f8a6-4b88-8aea-5460b43bf677" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/how_to_docker.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/README.Docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.Docker.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +34,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-
-      </map>
+      <map />
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -68,7 +64,7 @@
     "Python.main.executor": "Run",
     "Python.utils.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "yuda__1.1.0",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/yuda/Desktop/RIG_v1/RIG/src/App/rule_instance",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -161,17 +157,14 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.utils" />
-
         <item itemvalue="Python.main" />
         <item itemvalue="Python.generation_eval (2)" />
         <item itemvalue="Python.utils" />
         <item itemvalue="Python.main" />
-=======
         <item itemvalue="Python.main" />
         <item itemvalue="Python.generation_eval (2)" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.generation_eval (2)" />
-
       </list>
     </recent_temporary>
   </component>
@@ -211,9 +204,7 @@
       <workItem from="1734087523325" duration="6000" />
       <workItem from="1734193639451" duration="642000" />
       <workItem from="1734253648846" duration="1034000" />
-
       <workItem from="1734280176189" duration="6921000" />
-
     </task>
     <task id="LOCAL-00001" summary="try">
       <option name="closed" value="true" />
@@ -287,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734003003950</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="docker - v2">
+      <option name="closed" value="true" />
+      <created>1734298780103</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1734298780103</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +300,8 @@
     <MESSAGE value="docker working" />
     <MESSAGE value="chat_gpt" />
     <MESSAGE value="db" />
-    <option name="LAST_COMMIT_MESSAGE" value="db" />
+    <MESSAGE value="docker - v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker - v2" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RIG_v1$utils.coverage" NAME="utils Coverage Results" MODIFIED="1733484109579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RIG/src/Utils" />
