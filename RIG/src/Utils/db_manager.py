@@ -11,21 +11,21 @@ class DBManager:
         :param db_path:
         """
         self.db_path = db_path
-        self.df = self.get_df()
+        self.df = None
+        self.get_df()
 
     def validate_db_path(self):
         if self.db_path[-4:] != '.csv':
             raise f"the db_path should end with '.csv'! your path: {self.db_path}"
 
-    def get_df(self) -> pd.DataFrame:
+    def get_df(self):
         try:
-            df = pd.read_csv(self.db_path)
+            self.df = pd.read_csv(self.db_path)
         except:
-            df = pd.DataFrame(
+            self.df = pd.DataFrame(
                 columns=["type_name", "schema", "description", "default_values", "default_rule_instance", "rule_type",
                          "embedding"])
             self.update_db()
-        return df
 
     def update_db(self) -> None:
         """
