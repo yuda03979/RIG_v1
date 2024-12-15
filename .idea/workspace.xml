@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="af38b4dc-f8a6-4b88-8aea-5460b43bf677" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.Docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.Docker.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG/src/Utils/db_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/Utils/db_manager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="yuda_v3" />
+        <entry key="$PROJECT_DIR$" value="yuda_1.10" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -158,9 +156,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.utils" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.generation_eval (2)" />
-        <item itemvalue="Python.utils" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.generation_eval (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +196,10 @@
       <workItem from="1733646804617" duration="24121000" />
       <workItem from="1733680246144" duration="15011000" />
       <workItem from="1733822384011" duration="3334000" />
-      <workItem from="1733928312809" duration="11080000" />
+      <workItem from="1733928312809" duration="18739000" />
+      <workItem from="1734087523325" duration="6000" />
+      <workItem from="1734193639451" duration="642000" />
+      <workItem from="1734253648846" duration="1034000" />
     </task>
     <task id="LOCAL-00001" summary="try">
       <option name="closed" value="true" />
@@ -262,7 +265,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733822721004</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="db">
+      <option name="closed" value="true" />
+      <created>1734003003949</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1734003003950</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +286,8 @@
     <MESSAGE value="try" />
     <MESSAGE value="docker working" />
     <MESSAGE value="chat_gpt" />
-    <option name="LAST_COMMIT_MESSAGE" value="chat_gpt" />
+    <MESSAGE value="db" />
+    <option name="LAST_COMMIT_MESSAGE" value="db" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RIG_v1$utils.coverage" NAME="utils Coverage Results" MODIFIED="1733484109579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RIG/src/Utils" />
