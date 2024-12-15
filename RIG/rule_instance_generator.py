@@ -33,7 +33,7 @@ class RuleInstanceGenerator:
                  project_directory=GLOBALS.project_directory,
                  rag_model_path=GLOBALS.rag_model_path,
                  gpt_model_path=GLOBALS.gpt_model_path,
-                 llama_server_path=GLOBALS.llama_server_path,
+                 llama_server_path=None,
                  rule_types_directory=None,
                  db_file_name=GLOBALS.db_file_name,
                  rag_difference=GLOBALS.rag_difference,
@@ -166,7 +166,7 @@ class RuleInstanceGenerator:
 
     def evaluate(
         self,
-        data_dile_path,
+        data_file_path,
         output_directory,
         start_point=0,
         end_point=2,  # None - all the data
@@ -174,7 +174,7 @@ class RuleInstanceGenerator:
     ):
         evaluate_func(
             self,
-            data_dile_path=data_dile_path,
+            data_file_path=data_file_path,
             output_directory=output_directory,
             start_point=start_point,
             end_point=end_point,  # None - all the data
