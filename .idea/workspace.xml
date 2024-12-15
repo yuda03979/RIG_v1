@@ -8,10 +8,7 @@
       <change afterPath="$PROJECT_DIR$/how_to_docker.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG/rule_instance_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/rule_instance_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -164,10 +161,17 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.utils" />
+
         <item itemvalue="Python.main" />
         <item itemvalue="Python.generation_eval (2)" />
         <item itemvalue="Python.utils" />
         <item itemvalue="Python.main" />
+=======
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.generation_eval (2)" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.generation_eval (2)" />
+
       </list>
     </recent_temporary>
   </component>
@@ -207,7 +211,9 @@
       <workItem from="1734087523325" duration="6000" />
       <workItem from="1734193639451" duration="642000" />
       <workItem from="1734253648846" duration="1034000" />
+
       <workItem from="1734280176189" duration="6921000" />
+
     </task>
     <task id="LOCAL-00001" summary="try">
       <option name="closed" value="true" />
