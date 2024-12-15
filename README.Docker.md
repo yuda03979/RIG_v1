@@ -51,61 +51,24 @@ install docker
 sudo snap install docker  
 ```
 
-install docker compose
-```
-sudo apt-get install docker-compose-plugin
-```
-or:
-```angular2html
-sudo curl -L "https://github.com/docker/compose/releases/download/v2.29.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-docker-compose --version
-```
-output: ```Docker Compose version v2.29.1```
 ### Local Development
 Navigate to the project directory and run:
 ```bash
-docker compose up --build
+docker compose cuild
 ```
+
+### to run it:
+docker compose up
 
 The application will be accessible at: http://localhost:8000/docs
+also you can run it with the examples below (curl) or with the how_to_docker.ipynb
 
-## Deployment to Cloud
-
-### Building Docker Image
-
-#### Standard Build
-```bash
-docker build -t myapp .
-```
-
-#### Cross-Platform Build (e.g., Mac M1 to AMD64)
-
-
-```bash
-docker build --platform=linux/amd64 -t myapp .
-```
-
-### Pushing to Registry
-```bash
-docker push myregistry.com/myapp
-```
-
-## Additional Resources
-- [Docker's Python Guide](https://docs.docker.com/language/python/)
-- [Docker Getting Started - Sharing](https://docs.docker.com/go/get-started-sharing/)
-
-## Troubleshooting
-- Verify Docker and Docker Compose are correctly installed
-- Check environment variable configurations - they all must be correct, even if you don't use them.
-- Ensure model files are downloaded and placed correctly
-
-## Notes
-- Recommended to use the latest stable versions of Docker and Docker Compose
-- Platform-specific build may be necessary for cloud deployment
-
-
+- --
+## to use it with python, check out the how_to_docker.ipyb notebook.
+- --
 # how to use:
+
+- --
 - functions:
 1. init_gemma_model
 ```bash
@@ -162,14 +125,9 @@ thank you :)
 PROJECT_DIRECTORY="/home/ubuntu/RIG_v1/project_directory/"               # required
 GPT_MODEL_PATH="/home/ubuntu/gemma-2-2b-it-Q8_0.gguf"             # required
 RAG_MODEL_PATH="/home/ubuntu/bge-m3"                              # required
-RULE_TYPES_DIRECTORY="/home/ubuntu/RIG_v1/evaluation/data/rule_types"    # optional - you don't need to change that
+RULE_TYPES_DIRECTORY="/home/ubuntu/RIG_v1/evaluation/data/rule_types/"    # optional - you don't need to change that
 RAG_DIFFERENCE="0.001"                                                          # optional - you don't need to change that
 RAG_THRESHOLD="0.5"                                                             # optional - you don't need to change that
 MAX_CONTEXT_LENGTH="1536"                                                       # optional - you don't need to change that
 MAX_NEW_TOKENS="512"                                                            # optional - you don't need to change that
 N_THREADS="8"                                                                   # optional - you don't need to change that
-
-LLAMA_SERVER_PATH="/home/ubuntu/"      # dont need in this version
-
-
-
