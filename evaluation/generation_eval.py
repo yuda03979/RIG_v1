@@ -1,4 +1,6 @@
 import os
+from ossaudiodev import error
+
 import tqdm
 import pandas as pd
 import ast
@@ -19,10 +21,10 @@ rig =  RuleInstanceGenerator(
     rule_types_directory="", # optional. if you want to load rule-types from directory.
     rag_threshold=0.5, # oprional
     max_context_length=1024, # optional
-    max_new_tokens=1024, # optional
+    max_new_tokens=540, # optional
     n_threads=5 # optional
 )
-rig.init_gemma_model(max_context_length=1024 + 1024)
+rig.init_gemma_model(max_context_length=1024)
 #
 # folder_path = "db/rule_types/"
 # for file_name in os.listdir(folder_path):
@@ -102,7 +104,7 @@ def predict(free_text,row_id):
 #
 def normalize_empty_value(value):
     """Normalize empty values to a common representation."""
-    if value in [None, '', ' ', " ", "", "null", "None", "none", "empty",0,'0'] + ["int", "Int", "String", "string"]:
+    if value in [None, '', ' ', " ", "","unknown", "null","NULL", "None","no", "none", "empty","EMPTY",0,'0'] + ["int", "Int", "String", "string"]:
         return "null"  # Choose a common representation for empty values
     return value
 
@@ -160,7 +162,7 @@ def score_rule_instance_name(expected, response):
 
 
 # Helper function to collect errors for each scoring type
-def collect_error_data(param_name, row_id, expected, response,differences , free_text, correct_type_name, predict_type_name, actual_type_name):
+def collect_error_data( param_name, row_id, expected, response, free_text, differences,correct_type_name, predict_type_name, actual_type_name):
     """Helper function to create error data entry."""
     return {
         "param_name": param_name,
@@ -177,7 +179,7 @@ def collect_error_data(param_name, row_id, expected, response,differences , free
 def score_binary(expected, response):
     for k, expected_v in expected.items():
         try:
-            if normalize_empty_value(response[k]) != normalize_empty_value(expected_v):
+            if normalize_empty_value(response[k]) != normalize_empty_value(expected_v) and k != "ruleInstanceName":
                 return 0
         except:
             return 0
@@ -203,10 +205,7 @@ def find_differences(expected, response):
         "missing_keys": [],
         "extra_keys": []
     }
-    expected = normalize_values(expected)
-    response = normalize_values(response)
-    response = sort_response_by_expected(expected, response)
-
+    
     for key in expected:
         if key in response and expected[key] != response[key]:
             differences["mismatched_keys"][key] = {"expected": expected[key], "response": response[key]}
@@ -225,12 +224,12 @@ error_df_rule_name_score = []
 # Evaluation Function
 def evaluate():
     rows = []
-    for i, (row_id, type_name, expected, free_text_list) in tqdm.tqdm(enumerate(eval_data_generation[::5]), total=len(eval_data_generation[::5])):
+    for i, (row_id, type_name, expected, free_text_list) in tqdm.tqdm(enumerate(eval_data_generation), total=len(eval_data_generation)):
         print(i)
         if not i % 10:
             time.sleep(sleep_time_each_10)
         for free_text in free_text_list:
-            # print(free_text)
+            print('free_text = ' + free_text)
             if not free_text.strip():
                 print("Skipping empty free_text")
                 continue
@@ -241,7 +240,10 @@ def evaluate():
                 if not rig_response:
                     print('error')
                 expected, response = correct_prediction(expected, response)
+                expected = normalize_values(expected)
+                response = normalize_values(response)
                 response = sort_response_by_expected(expected, response)
+                examples = rig_response["examples"]
 
                 # Numerical and segmentation scores
                 binary_score_no_rule_instance = score_binary(expected, response)
@@ -251,7 +253,7 @@ def evaluate():
                 param_verbal_avg_score = score_param_type_avg(expected, response, numerical=False)
                 rule_name_score = score_rule_instance_name(expected, response)
                 binary_score = 1 if rule_name_score and binary_score_no_rule_instance else 0
-                correct_type_name =  int(clean_text(["type_name"]) == clean_text(type_name))
+                correct_type_name =  intint(clean_text(rig_response["type_name"]) == clean_text(type_name))
 
 
                 # If there is a score mismatch, add the error data to the respective lists
@@ -282,13 +284,15 @@ def evaluate():
                     "response": json.dumps(response, indent=4, ensure_ascii=False),
                     "expected": json.dumps(expected, indent=4, ensure_ascii=False),
                     "free_text": free_text,
-                    "correct_type_name": int(clean_text(rig_response["type_name"]) == clean_text(type_name)),
+                    "examples": examples,
+                    "correct_type_name": correct_type_name,
                     "predict_type_name": rig_response["type_name"],
                     "actual_type_name": type_name,
 
                 }
                 rows.append(new_row)
             except Exception as e:
+                print(error)
                 new_row = {
                     "id": row_id,
                     "binary_score": 0,

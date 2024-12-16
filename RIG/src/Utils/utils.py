@@ -79,8 +79,8 @@ def log_question_and_answer(response):
     """
     rag_api = MODELS.rag_api
 
-    log_dir = os.path.join(GLOBALS.project_directory, 'logs')
-    log_file = os.path.join(log_dir, "logs_examples2.csv")
+    log_dir = os.path.join(GLOBALS.project_directory, '.logs')
+    log_file = os.path.join(log_dir, "logs_examples.csv")
 
     if not os.path.exists(log_file):
         with open(log_file, mode="w", newline="", encoding="utf-8") as file:

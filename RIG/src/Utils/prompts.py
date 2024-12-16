@@ -312,56 +312,59 @@ def prompt_json_gemma_v4(free_text, type_name, schema, description):
     return prompt
 
 
-def prompt_json_gemma_v5(free_text, type_name, schema, description ,examples = None):
-    """
-    from chat gpt
-    """
-    if  not examples: 
-        examples ="""
-        xample 1:
-        - Free text: 
-        "Please generate a Weather Alert - other for area code 2001. Alert type is Thunderstorm. Intensity: severe. Urgency: high. Ignore the forecast source for now. The duration of this case, I'd say, is around two. severity is empty or unclear"
-        - Schema:
-        {{
-            "alertType": "string",
-            "areaCode": "int",
-            "intensity": "string",
-            "urgency": "string",
-            "forecastSource": "string",
-            "duration": "int",
-            "ruleInstanceName": "string",
-            "severity": "int"
-        }}
-            "ruleInstanceName" field should be: "Weather Alert - ?". ? length should be about 1-3 words.
-        
-        - Output:
-        {{"alertType": "Thunderstorm","areaCode": 2001,"intensity": "severe","urgency": "high","forecastSource": "null","duration": 2,"ruleInstanceName": "Weather Alert - other","severity": "null"}}
-        
-        Example 2:
-        
-        - Free text: 
-         "Add a report for 'Shell Delay'. Equipment Malfunction case. Type: shell. Site is not important. Malfunction at level five, urgency four. Desc: Detonation delayed in poland Severity i think 3.",
-        - Schema:
-        {{
-            "type": "string",
-            "site": "string",
-            "malfunctionLevel": "int",
-            "urgency": "int",
-            "description": " string",
-            "ruleInstanceName": "string",
-            "severity": "int"
-        }}
-        "ruleInstanceName" field should be: "Equipment Malfunction - ?". ? length should be about 1-3 words.
-    
-        - Output:
-        {{"type": "shell","site": "empty","malfunctionLevel": 5,"urgency": 4,"description": "Detonation delayed in poland","ruleInstanceName": "Equipment Malfunction - Shell Delay","severity": 3}}
-      """
-        # closest_question_2
-        # ":closest_question_2,
-        # "closest_answer_2": closest_answer_2,
-        # "closest_distance_2": closest_distance_2,
-        # "response_id_2": response_id_2,
-        # "type_name_2": type_name_2}
+def prompt_json_gemma_v5(free_text, type_name, schema, description, examples=None):
+    if not examples["example_1"]["free_text"] or not examples["example_2"]["free_text"]:
+        examples = f"""
+### Example 1:
+Free text:
+"Please generate a Weather Alert - other for area code 2001. Alert type is Thunderstorm. Intensity: severe. Urgency: high. Ignore the forecast source for now. The duration of this case, I'd say, is around two. severity is empty or unclear"
+Schema:
+{{
+    "alertType": "string",
+    "areaCode": "int",
+    "intensity": "string",
+    "urgency": "string",
+    "forecastSource": "string",
+    "duration": "int",
+    "ruleInstanceName": "string",
+    "severity": "int"
+}}
+Output:
+{{
+    "alertType": "Thunderstorm",
+    "areaCode": 2001,
+    "intensity": "severe",
+    "urgency": "high",
+    "forecastSource": "null",
+    "duration": 2,
+    "ruleInstanceName": "Weather Alert - other",
+    "severity": "null"
+}}
+
+### Example 2 :
+Free text:
+"Add a report for 'Shell Delay'. Equipment Malfunction case. Type: shell. Site is not important. Malfunction at level five, urgency four. Desc: Detonation delayed in poland Severity i think 3."
+Schema:
+{{
+    "type": "string",
+    "site": "string",
+    "malfunctionLevel": "int",
+    "urgency": "int",
+    "description": " string",
+    "ruleInstanceName": "string",
+    "severity": "int"
+}}
+Output:
+{{
+    "type": "shell",
+    "site": "empty",
+    "malfunctionLevel": 5,
+    "urgency": 4,
+    "description": "Detonation delayed in poland",
+    "ruleInstanceName": "Equipment Malfunction - Shell Delay",
+    "severity": 3
+}}
+        """
     else:
         example_free_text_1 = examples["example_1"]["free_text"]
         df = GLOBALS.db_manager.get_df()
@@ -369,7 +372,6 @@ def prompt_json_gemma_v5(free_text, type_name, schema, description ,examples = N
         example_schema_1 = df.loc[
             df["type_name"].apply(clean_text) == clean_text(examples["example_1"]["type_name"]), "schema"
         ].values[0]
-        print(example_schema_1)
 
         example_output_1 = str(examples["example_1"]["response"])
 
@@ -380,39 +382,43 @@ def prompt_json_gemma_v5(free_text, type_name, schema, description ,examples = N
         example_output_2 = str(examples["example_2"]["response"])
 
         examples = f"""
-         Example 1:
-        - Free text:
-         {example_free_text_1}
-        - Schema:
-        {example_schema_1}
-        - Output:
-        {example_output_1}
-        Example 2:
-        - Free text:
-        {example_free_text_2}
-        - Schema:
-        {example_schema_2}
-        - Output:
-        {example_output_2}
-            
+### Example 1 (Similar Style Example):
+Schema:
+{example_schema_1}
+Free text:
+{example_free_text_1}
+Output:
+{example_output_1}
+
+### Example 2 (Closest Task Match) :
+Schema:
+{example_schema_2}
+Free text:
+{example_free_text_2}
+Output:
+{example_output_2}
         """
 
-        
     prompt = f"""
-    Extract information from the provided text and format it according to the given JSON schema. If a field is not mentioned in the text, set its value to "null" (with quotes). Follow the schema exactly.
-    
-    {examples}
+    Extract information from the provided text and format it according to the given JSON schema. Follow these strict guidelines:
+    1. **Only use fields explicitly listed in the schema below.** Ignore any fields mentioned in the text or context that are not in the schema.
+    2. **Do not add or infer fields.** If a field is not mentioned in the schema, it must be excluded from the output.
+    3. **For missing fields in the schema, set their value to "null" (with quotes).**
 
-    
-    (The severity parameter means the severity level of the alert)
-    
-    
-    Now process this input:
+    ### Schema:
+    {schema}
+
+    ### Examples:
+    {examples}
+    ---
+
+    ### Context (do not use for filling fields, only as reference for the schema):
+    {description}
+
+    ---
+    ### Task:
     - Free text: {free_text}
-    - Schema: {schema}
-    "ruleInstanceName" field should be: "{type_name} - ?". ? length should be about 1-3 words.
-    - Context for fields (do not fill): {description}
     - Output:
     """
-    print('prompt = '+ prompt)
+    print("prompt = " + prompt)
     return prompt

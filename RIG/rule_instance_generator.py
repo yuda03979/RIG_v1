@@ -43,11 +43,13 @@ class RuleInstanceGenerator:
                  max_context_length=GLOBALS.max_context_length,
                  max_new_tokens=GLOBALS.max_new_tokens,
                  n_threads=GLOBALS.n_threads,
+                 for_eval = False
                  ):
         if project_directory and not project_directory.endswith('/'):
             project_directory += '/'
         set_globals(project_directory, rag_model_path, gpt_model_path, llama_server_path, db_file_name, rag_difference, rag_threshold, max_context_length, max_new_tokens,
                     n_threads)
+        self.for_eval = for_eval
         self.globals = GLOBALS
         MODELS.rag_api = RagApi()
         self.get_instance = Get()
@@ -87,7 +89,7 @@ class RuleInstanceGenerator:
             return False
 
 
-    def get_rule_instance(self, free_text: str,row_id = "id") -> dict:
+    def get_rule_instance(self, free_text: str, row_id = None) -> dict:
         """
         Processes user input and returns a response with its validation status.
 
@@ -114,12 +116,13 @@ class RuleInstanceGenerator:
             "type_name": None,
             "rag_score": None,
             "model_response": None,
+            "examples": None,
             "schema": None
         }
 
         if any(char.isalpha() for char in free_text) and len(free_text) > 10:
             try:
-                response = self.get_instance.predict(free_text,row_id)
+                response = self.get_instance.predict(free_text,row_id,self.for_eval)
 
             except Exception as e:
                 response["error_message"] = f"Processing failed: {type(e).__name__}, {str(e)}"
@@ -137,10 +140,11 @@ class RuleInstanceGenerator:
         log_interactions(response)
         if not response["is_error"]:
             log_interactions(response)
-            log_question_and_answer(response)
+            if not self.for_eval:
+                log_question_and_answer(response)
         return response
 
-    def add_rule_types_from_folder(self, rule_types_directory=None):
+    def add_rule_types_from_folder(self, rule_types_directory = None):
         try:
             if isinstance(rule_types_directory, str):
                 if not rule_types_directory.endswith("/"):

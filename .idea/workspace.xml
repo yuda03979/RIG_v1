@@ -4,9 +4,142 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af38b4dc-f8a6-4b88-8aea-5460b43bf677" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/RIG/src/App/rule_instance/confidence.py" afterDir="false" />
+    <list default="true" id="af38b4dc-f8a6-4b88-8aea-5460b43bf677" name="Changes" comment="examples">
+      <change afterPath="$PROJECT_DIR$/RIG/src/Utils/craeate_examples.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/ATV.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Actor.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Aerial_Dogfight.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Air_Strike.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Airship_Vehicle.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Ambulance.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Ambush.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Anglerfish.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Apartment_Building.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Architect.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Artillery_Strike.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Axe.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Ballista.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Barista.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Bastard_Sword.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Battlefield_Retreat.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Bayonet_Charge.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Beaver.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Beetle.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Blowgun.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Boomerang.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Bow.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Bridge.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Bull.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Cannon.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Canoe.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Carpenter.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Castle.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Cavalry_Charge.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Chakram.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Chef.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Church.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Conveyor.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Cottage.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Counteroffensive.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Cow.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Data_Analyst.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Dentist.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Electric_Train.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Electrician.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Engineer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Evacuation_Operation.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Event_Planner.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Factory.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Farmer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Firefighter.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Flail.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Flanking_Maneuver.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Fox.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Gauntlet_Knife.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Goldfish.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Goliath_Frog.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Gondola.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Graphic_Designer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Guerrilla_Skirmish.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Halberd.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Hamster.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Hospital.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Hotel.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Journalist.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Kangaroo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Katana.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Kayak.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Kestrel.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Koala.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Komodo_Dragon.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Lawyer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Library.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Mall.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Mechanic.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Minefield_Deployment.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Mole.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Molotov_Cocktail.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Morning_Star.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Multi_Motor_Trampoline.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Museum.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Naval_Bombardment.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Net_Gun.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Night_Raid.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Nurse.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Pangolin.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Paratrooper_Drop.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Parrotfish.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Personal_Trainer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Phoenix_Fish.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Photographer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Pilot.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Platypus.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Plumber.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Police_Officer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Poodle.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Psychologist.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Puffin.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Rabbit.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Rapier.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Robot.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Rooster.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Sabre.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/School.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Scientist.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Scimitar.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Scythe.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Sea_Otter.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Shuriken.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Siege.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Sniper_Attack.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Software_Developer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Swan.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Tank_Advance.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Tarantula.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Teacher.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Tentacled_Sea_Cucumber.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Trench_Assault.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Trident.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Trolley.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Urban_Public_Transport_System.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Vulture.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Warehouse.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/Wildcat.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation/data/rule_types/46_ruletypes/x4X4_Off_Road_Car.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RIG/globals.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/globals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RIG/rule_instance_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/rule_instance_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RIG/src/App/rule_instance/generation.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/App/rule_instance/generation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RIG/src/App/rule_instance/get.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/App/rule_instance/get.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RIG/src/Utils/caeate_examples_eval.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RIG/src/Utils/create_examples.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RIG/src/Utils/prompts.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/Utils/prompts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RIG/src/Utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/Utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation/generation_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/generation_eval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/how_to.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/how_to.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_directory/.logs/logs.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_directory/logs/logs_examples2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/project_directory/logs/logs_examples2.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +150,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -34,7 +168,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="yuda_v3" />
+        <entry key="$PROJECT_DIR$" value="yuda_1.0.0" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -47,8 +181,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/yuda03979/RIG_v1&quot;,
-    &quot;accountId&quot;: &quot;df3c83b7-4bbc-4331-a26d-999d78dfe6ff&quot;
+    &quot;url&quot;: &quot;https://github.com/yuda03979/RIG_v1.git&quot;,
+    &quot;accountId&quot;: &quot;3388b83b-5e06-450e-a14f-bee2646ed5cf&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -59,32 +193,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.generation_eval (2).executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.utils.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "yuda__1.0.0",
-    "last_opened_file_path": "/Users/yuda/Desktop/RIG_v1/RIG/src/App/rule_instance",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.caeate_examples_eval.executor&quot;: &quot;Run&quot;,
+    &quot;Python.create_examples.executor&quot;: &quot;Run&quot;,
+    &quot;Python.generation_eval (2).executor&quot;: &quot;Run&quot;,
+    &quot;Python.generation_eval.executor&quot;: &quot;Run&quot;,
+    &quot;Python.globals.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.prompts.executor&quot;: &quot;Run&quot;,
+    &quot;Python.rule_instance_generator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.utils.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;yosef__v2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mefathim/PycharmProjects/RIG_v4/project_directory/logs&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/evaluation/data" />
+      <recent name="$PROJECT_DIR$/project_directory/logs" />
+      <recent name="$PROJECT_DIR$/project_directory" />
       <recent name="$PROJECT_DIR$/RIG" />
       <recent name="$PROJECT_DIR$/RIG/src/Utils" />
-      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/project_directory/.logs" />
       <recent name="$PROJECT_DIR$/evaluation" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.generation_eval (2)">
     <configuration name="generation_eval (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="EltaBenchmark" />
       <option name="ENV_FILES" value="" />
@@ -156,8 +301,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.generation_eval (2)" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.utils" />
       </list>
     </recent_temporary>
@@ -165,8 +310,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.18034.82" />
-        <option value="bundled-python-sdk-975db3bf15a3-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.18034.82" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.22855.92" />
+        <option value="bundled-python-sdk-b068d85d1acf-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.22855.92" />
       </set>
     </attachedChunks>
   </component>
@@ -194,6 +339,12 @@
       <workItem from="1733646804617" duration="24121000" />
       <workItem from="1733680246144" duration="15011000" />
       <workItem from="1733822384011" duration="334000" />
+      <workItem from="1733899429841" duration="10729000" />
+      <workItem from="1733916275245" duration="48602000" />
+      <workItem from="1734209932186" duration="17584000" />
+      <workItem from="1734262622029" duration="17489000" />
+      <workItem from="1734339275287" duration="682000" />
+      <workItem from="1734339974337" duration="10366000" />
     </task>
     <task id="LOCAL-00001" summary="try">
       <option name="closed" value="true" />
@@ -251,7 +402,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733747394872</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="examples">
+      <option name="closed" value="true" />
+      <created>1733995378336</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733995378336</updated>
+    </task>
+    <task id="LOCAL-00009" summary="examples">
+      <option name="closed" value="true" />
+      <created>1734005602512</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1734005602512</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,14 +427,45 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="try" />
     <MESSAGE value="docker working" />
     <MESSAGE value="chat_gpt" />
-    <option name="LAST_COMMIT_MESSAGE" value="chat_gpt" />
+    <MESSAGE value="examples" />
+    <option name="LAST_COMMIT_MESSAGE" value="examples" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook:///home/mefathim/PycharmProjects/RIG_v4/evaluation/evaluation.ipynb</url>
+          <line>2</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/RIG_v4$caeate_examples_eval.coverage" NAME="caeate_examples_eval Coverage Results" MODIFIED="1734006050258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RIG/src/Utils" />
+    <SUITE FILE_PATH="coverage/RIG_v4$globals.coverage" NAME="globals Coverage Results" MODIFIED="1733909463477" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RIG" />
+    <SUITE FILE_PATH="coverage/RIG_v4$create_examples.coverage" NAME="create_examples Coverage Results" MODIFIED="1733908974658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RIG/src/Utils" />
+    <SUITE FILE_PATH="coverage/RIG_v4$generation_eval__2_.coverage" NAME="generation_eval (2) Coverage Results" MODIFIED="1734339291498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/evaluation" />
+    <SUITE FILE_PATH="coverage/RIG_v4$generation_eval.coverage" NAME="generation_eval Coverage Results" MODIFIED="1734269197704" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/evaluation" />
+    <SUITE FILE_PATH="coverage/RIG_v4$prompts.coverage" NAME="prompts Coverage Results" MODIFIED="1734339315919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RIG/src/Utils" />
     <SUITE FILE_PATH="coverage/RIG_v1$utils.coverage" NAME="utils Coverage Results" MODIFIED="1733484109579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RIG/src/Utils" />
+    <SUITE FILE_PATH="coverage/RIG_v4$rule_instance_generator.coverage" NAME="rule_instance_generator Coverage Results" MODIFIED="1733909249175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RIG" />
+    <SUITE FILE_PATH="coverage/RIG_v4$main.coverage" NAME="main Coverage Results" MODIFIED="1733836908829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RIG_v1$main.coverage" NAME="main Coverage Results" MODIFIED="1733669118323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RIG_v1$generation_eval__2_.coverage" NAME="generation_eval (2) Coverage Results" MODIFIED="1733669103366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/evaluation" />
   </component>
