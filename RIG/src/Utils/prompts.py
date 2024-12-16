@@ -361,3 +361,7 @@ def prompt_json_gemma_v5(free_text, type_name, schema, description):
     - Output:
     """
     return prompt
+
+
+rag_query_prompt = "i'll give you some text, notice that THE NOUNS ITS WHATS MATTER! Here’s the text: "
+rag_rule_type_peompt = "i'll give you some text, prepare it for classification. notice that THE NOUNS ITS ALL WHATS MATTER! Here’s the text: "

@@ -1,7 +1,7 @@
 from typing import Tuple, List, Any
 from RIG.src.Utils.utils import get_dict
 from RIG.globals import GLOBALS, MODELS
-
+from RIG.src.Utils.prompts import rag_query_prompt
 
 class Classification:
 
@@ -29,6 +29,11 @@ class Classification:
         return type_name, -3, True
 
     def find_rule_name_in_query(self, query) -> tuple[list[Any], bool]:
+        """
+        (regex search) - searching in the string matchhing between any rulu_type_nameto the query
+        :param query:
+        :return:
+        """
         def clean_text(text):
             """Remove all non-alphanumeric characters and convert to lowercase."""
             return ''.join(char.lower() for char in text if char.isalnum())
@@ -46,7 +51,7 @@ class Classification:
 
     def using_rag(self, query):
         succeed = False
-        type_names_list = MODELS.rag_api.get_closest_type_name(query)
+        type_names_list = MODELS.rag_api.get_closest_type_name(rag_query_prompt + query) #
         closest_distance = type_names_list[0][1]
         difference = type_names_list[0][1] - type_names_list[1][1]
         if difference > GLOBALS.rag_difference and difference != float('inf'):  # the case of empty list
