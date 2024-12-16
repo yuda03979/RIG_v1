@@ -8,9 +8,6 @@ RUN apt-get update && apt-get install -y \
     libstdc++-12-dev \
     && rm -rf /var/lib/apt/lists/* \
 
-RUN apt-get clean && apt-get update && apt-get -y upgrade
-RUN apt-get -y install vim
-
 WORKDIR /app
 
 RUN pip install --upgrade pip
