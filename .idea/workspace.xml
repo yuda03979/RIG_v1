@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af38b4dc-f8a6-4b88-8aea-5460b43bf677" name="Changes" comment="examples">
-      <change afterPath="$PROJECT_DIR$/evaluation/data/data_yuda4.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/evaluation/data/data_yuda5.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project_directory/db_data4.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project_directory/db_data5.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project_directory/logs/logs_examples3.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project_directory/logs/logs_examples4.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project_directory/logs/logs_examples5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG/globals.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/globals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG/src/App/rule_instance/generation.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/App/rule_instance/generation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG/src/Utils/craeate_examples.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/Utils/craeate_examples.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RIG/src/Utils/gemma_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/Utils/gemma_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RIG/src/Utils/prompts.py" beforeDir="false" afterPath="$PROJECT_DIR$/RIG/src/Utils/prompts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation/generation_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation/generation_eval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/how_to.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/how_to.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +215,7 @@
       <workItem from="1734439120343" duration="19876000" />
       <workItem from="1734473616637" duration="3216000" />
       <workItem from="1734510837075" duration="3259000" />
-      <workItem from="1734519108813" duration="479000" />
+      <workItem from="1734519108813" duration="1124000" />
     </task>
     <task id="LOCAL-00001" summary="try">
       <option name="closed" value="true" />
@@ -303,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734005602512</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="examples">
+      <option name="closed" value="true" />
+      <created>1734521472120</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1734521472120</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
