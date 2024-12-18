@@ -1,17 +1,6 @@
-FROM python:3.11
+FROM yuda03979/cmake_for_rig:v0
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    gcc \
-    cmake \
-    libstdc++-12-dev \
-    && rm -rf /var/lib/apt/lists/* \
-
-WORKDIR /app
-
-RUN pip install --upgrade pip
-
+WORKDIR /usr/src
 # Copy requirements and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
