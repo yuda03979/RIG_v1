@@ -4,7 +4,7 @@ import os
 class Globals:
 
     def __init__(self):
-        self.project_directory = "/Users/yuda/PycharmProjects/EltaProject_v1/archive/data_directory/" # ensure the / in the end
+        self.project_directory = "/Users/yuda/Desktop/RIG_v1/project_directory" # ensure the / in the end
 
         self.llama_server_path = "/Users/yuda/PycharmProjects/EltaProject_v1/archive/data_directory/llama.cpp/llama-server"
         self.rag_model_path = "/Users/yuda/PycharmProjects/EltaProject_v1/archive/data_directory/BAAI/bge-m3"

@@ -145,7 +145,7 @@ class RuleInstanceGenerator:
                     if file_name.endswith(".json"):
                         rule_types_loaded.append(file_name)
                         if not self.new_rule_type(rule_types_directory + file_name):
-                            return f"in  add_rule_types_from_folder, loading don't complete. error with: {file_name}"
+                            return f"in add_rule_types_from_folder, loading don't complete. error with: {file_name}"
                 print(f"rule_types_loaded: {rule_types_loaded}")
                 return f"rule_types_loaded: {rule_types_loaded}"
         except Exception as e:

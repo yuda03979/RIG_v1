@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.13 (ploting_data_kaggle)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (RIG_v1)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="/opt/anaconda3" project-jdk-type="Python SDK" />
 </project>

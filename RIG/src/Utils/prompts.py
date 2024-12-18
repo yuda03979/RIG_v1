@@ -474,5 +474,40 @@ Output:
     return prompt
 
 
-rag_query_prompt = "i'll give you some text, notice that THE NOUNS ITS WHATS MATTER! Here’s the text: "
-rag_rule_type_peompt = "i'll give you some text, prepare it for classification. notice that THE NOUNS ITS ALL WHATS MATTER! Here’s the text: "
+rag_query_prompt = "classification: "
+rag_rule_type_peompt = "classification: "
+
+
+
+def prompt_generating_text_rag_1(schema):
+    prompt = f"""
+    ### Example
+    - **Schema**:
+        {{
+            "gender": "string",
+            "historyRecord": "int",
+            "organization": "string",
+            "address": "string",
+            "age": "int",
+            "ruleInstanceName": "string",
+            "severity": "int"
+        }}
+    - **FreeText**: 
+        {{Please create a Rule instance "Suspected Person - other"  that related to "Suspected Person".
+Gender is 'gender',
+HistoryRecord is 2
+Organization is 'organization'
+Address is 'address'
+Age is 2,
+Severity is 2,
+}}
+
+    ---
+
+    ### Task
+    - **Schema**:
+        {schema}
+    - **FreeText**:
+    {{
+    """
+    return prompt

@@ -2,7 +2,7 @@ import json
 import os
 
 from RIG.globals import GLOBALS, MODELS
-from RIG.src.Utils.prompts import rag_rule_type_peompt
+from RIG.src.Utils.prompts import rag_rule_type_peompt, prompt_generating_text_rag_1
 
 class NewType:
 
@@ -88,7 +88,8 @@ class NewType:
         return rule_instance
 
     def create_embedding(self, type_name, schema) -> str:
-        embedding_words = f"{rag_rule_type_peompt}\n rule instance: {type_name}\n schema: {schema}"
+        embedding_words = f"{rag_rule_type_peompt}\n rule type name: {type_name}\n {str(MODELS.gemma_api.predict(prompt_generating_text_rag_1(schema)))[1:-1]}"
+        # embedding_words = f"{rag_rule_type_peompt}\n rule type name: {type_name}\nschema: {schema}"
         embedding_json, embedding = MODELS.rag_api.get_embedding(str(embedding_words))
         MODELS.rag_api.add_rule_type_embedding(type_name, embedding)
         return str(embedding_json)
