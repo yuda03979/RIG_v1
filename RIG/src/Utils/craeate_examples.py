@@ -20,8 +20,8 @@ class CreateExamples:
         :param log_file: The path to the CSV log file.
         """
         self.rag_api = MODELS.rag_api
-        self.log_dir = os.path.join(GLOBALS.project_directory, 'logs.')
-        self.log_file = os.path.join(self.log_dir, "logs_examples.csv")
+        self.log_dir = os.path.join(GLOBALS.project_directory, 'logs')
+        self.log_file = os.path.join(self.log_dir,"logs_examples5.csv")
 
 
     def clean_text(self,text):
@@ -34,6 +34,7 @@ class CreateExamples:
         Find the closest two questions in the log file to the given question.
         :return: A dictionary containing the two closest questions, answers, and distances.
         """
+        print("id =",row_id)
         if not os.path.exists(self.log_file) or os.stat(self.log_file).st_size == 0:
             print("Log file is empty or does not exist.")
             return {"example_1": {"free_text":None}, "example_2": {"free_text":None}}
@@ -83,7 +84,7 @@ class CreateExamples:
                         "type_name": row["Type_Name"],
                     }
                 # Check if this row is closer than the current second_closest
-                elif distance < 0.95 and distance > second_closest["distance"] and row["id"] != closest["response_id"] and id_dict_qust != id_dict_resp if row_id else True:
+                elif distance > second_closest["distance"] and row["id"] != closest["response_id"] and id_dict_qust != id_dict_resp if row_id else True:
 
                     second_closest = {
                         "distance": distance,
@@ -97,6 +98,6 @@ class CreateExamples:
             "example_1": closest,
             "example_2": second_closest,
         }
-
+        print(examples)
         return examples
 

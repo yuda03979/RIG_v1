@@ -10,7 +10,7 @@ class Globals:
         self.rag_model_path = "/Users/yuda/PycharmProjects/EltaProject_v1/archive/data_directory/BAAI/bge-m3"
         self.gpt_model_path = "/Users/yuda/PycharmProjects/EltaProject_v1/archive/data_directory/gemma-2-2b-it-Q8_0.gguf"
 
-        self.db_file_name = "db_data.csv"
+        self.db_file_name = "db_data5.csv"
         self.db_manager = None  # temporarily
         self.db_manager2 = None
         self.rag_difference = 0.001

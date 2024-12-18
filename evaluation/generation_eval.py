@@ -22,16 +22,17 @@ rig =  RuleInstanceGenerator(
     rag_threshold=0.5, # oprional
     max_context_length=1024, # optional
     max_new_tokens=540, # optional
-    n_threads=5 # optional
+    n_threads=5, # optional
+    for_eval = True
 )
-rig.init_gemma_model(max_context_length=1024)
+rig.init_gemma_model(max_context_length=1024+540)
 #
 # folder_path = "db/rule_types/"
 # for file_name in os.listdir(folder_path):
 #     if file_name.endswith(".json"):
 #         print(rig.new_rule_type(folder_path + file_name))
 
-csv_path = "data/data_yuda.csv"
+csv_path = "data/data_yuda5.csv"
 df_eval = pd.read_csv(csv_path)
 
 
@@ -224,7 +225,7 @@ error_df_rule_name_score = []
 # Evaluation Function
 def evaluate():
     rows = []
-    for i, (row_id, type_name, expected, free_text_list) in tqdm.tqdm(enumerate(eval_data_generation), total=len(eval_data_generation)):
+    for i, (row_id, type_name, expected, free_text_list) in tqdm.tqdm(enumerate(eval_data_generation[::25]), total=len(eval_data_generation[::25])):
         print(i)
         if not i % 10:
             time.sleep(sleep_time_each_10)
@@ -253,7 +254,7 @@ def evaluate():
                 param_verbal_avg_score = score_param_type_avg(expected, response, numerical=False)
                 rule_name_score = score_rule_instance_name(expected, response)
                 binary_score = 1 if rule_name_score and binary_score_no_rule_instance else 0
-                correct_type_name =  intint(clean_text(rig_response["type_name"]) == clean_text(type_name))
+                correct_type_name =  int(clean_text(rig_response["type_name"]) == clean_text(type_name))
 
 
                 # If there is a score mismatch, add the error data to the respective lists
@@ -269,7 +270,6 @@ def evaluate():
                 if rule_name_score == 0:
                     error_df_rule_name_score.append(
                         collect_error_data('score_rule_instance_name', row_id, expected, response, free_text, differences, correct_type_name,rig_response["type_name"],type_name))
-
                 # New row with evaluation metrics
                 new_row = {
                     "id":row_id,
@@ -338,16 +338,16 @@ def generate_unique_filename(directory, base_name, extension="csv"):
         i += 1
 
 
-file_path = generate_unique_filename("output", "test_results")
+file_path = generate_unique_filename("output_1", "test_results")
 df_results.to_csv(file_path, index=False)
 
-file_path = generate_unique_filename("output", "error_param_numerical_binary_score")
+file_path = generate_unique_filename("output_1", "error_param_numerical_binary_score")
 df_error_param_numerical_binary_score.to_csv(file_path, index=False)
 
-file_path = generate_unique_filename("output", "error_param_verbal_binary_score")
+file_path = generate_unique_filename("output_1", "error_param_verbal_binary_score")
 df_error_param_verbal_binary_score.to_csv(file_path, index=False)
 
-file_path = generate_unique_filename("output", "error_rule_name_score")
+file_path = generate_unique_filename("output_1", "error_rule_name_score")
 df_error_rule_name_score.to_csv(file_path, index=False)
 
 
@@ -378,7 +378,7 @@ print("without classification mistakes: ")
 accuracy_results = calculate_accuracy(df_results[df_results["correct_type_name"] == 1])
 print("with all the data: ")
 accuracy_results_2 = calculate_accuracy(df_results)
-file_path = generate_unique_filename("output", "accuracy_results",'txt')
+file_path = generate_unique_filename("output_1", "accuracy_results",'txt')
 # Save the accuracy metrics to a text file
 
 with open(file_path, "w") as file:

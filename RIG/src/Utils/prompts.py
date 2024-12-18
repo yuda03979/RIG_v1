@@ -312,10 +312,10 @@ def prompt_json_gemma_v4(free_text, type_name, schema, description):
     return prompt
 
 
+
 def prompt_json_gemma_v5(free_text, type_name, schema, description, examples=None):
-    if not examples["example_1"]["free_text"] or not examples["example_2"]["free_text"]:
-        examples = f"""
-### Example 1:
+    example_3 = f"""
+### Example 3 (Example for handling empty values):
 Free text:
 "Please generate a Weather Alert - other for area code 2001. Alert type is Thunderstorm. Intensity: severe. Urgency: high. Ignore the forecast source for now. The duration of this case, I'd say, is around two. severity is empty or unclear"
 Schema:
@@ -340,8 +340,11 @@ Output:
     "ruleInstanceName": "Weather Alert - other",
     "severity": "null"
 }}
+"""
+    if not examples["example_1"]["free_text"] or not examples["example_2"]["free_text"]:
+        examples = f"""
 
-### Example 2 :
+### Example 1 :
 Free text:
 "Add a report for 'Shell Delay'. Equipment Malfunction case. Type: shell. Site is not important. Malfunction at level five, urgency four. Desc: Detonation delayed in poland Severity i think 3."
 Schema:
@@ -364,21 +367,34 @@ Output:
     "ruleInstanceName": "Equipment Malfunction - Shell Delay",
     "severity": 3
 }}
+
+{example_3}
         """
     else:
         example_free_text_1 = examples["example_1"]["free_text"]
         df = GLOBALS.db_manager.get_df()
 
-        example_schema_1 = df.loc[
-            df["type_name"].apply(clean_text) == clean_text(examples["example_1"]["type_name"]), "schema"
-        ].values[0]
+        try:
+            example_schema_1 = df.loc[
+                df["type_name"].apply(clean_text) == clean_text(examples["example_1"]["type_name"]), "schema"
+            ].values[0]
+        except IndexError:
+            # Handle the case where no matching value is found
+            example_schema_1 = "***schema extraction failed***"  # Replace with your desired default value
+            print("1" + example_schema_1)
 
         example_output_1 = str(examples["example_1"]["response"])
 
         example_free_text_2 = examples["example_2"]["free_text"]
-        example_schema_2 = df.loc[
-            df["type_name"].apply(clean_text) == clean_text(examples["example_2"]["type_name"]), "schema"
-        ].values[0]
+        try:
+            example_schema_2 = df.loc[
+                df["type_name"].apply(clean_text) == clean_text(examples["example_2"]["type_name"]), "schema"
+            ].values[0]
+        except IndexError:
+            # Handle the case where no matching value is found
+            example_schema_2 = "***schema extraction failed***"  # Replace with your desired default value
+            print("2" + example_schema_2)
+
         example_output_2 = str(examples["example_2"]["response"])
 
         examples = f"""
@@ -397,13 +413,19 @@ Free text:
 {example_free_text_2}
 Output:
 {example_output_2}
+
+{example_3}
         """
 
     prompt = f"""
-    Extract information from the provided text and format it according to the given JSON schema. Follow these strict guidelines:
-    1. **Only use fields explicitly listed in the schema below.** Ignore any fields mentioned in the text or context that are not in the schema.
-    2. **Do not add or infer fields.** If a field is not mentioned in the schema, it must be excluded from the output.
-    3. **For missing fields in the schema, set their value to "null" (with quotes).**
+    ### Rules:
+1. Only use fields explicitly listed in the schema below.
+2. Do not add or infer fields. Fields missing in the schema or text should be set to "null".
+3. Carefully map field names from the schema to the text, even if the phrasing differs.
+4. Treat words like "without", "unknown" as "null", while "standard" "low" etc. will return the value.
+5. Output must match the schema exactly.
+
+        ***Be sure to follow these rules***
 
     ### Schema:
     {schema}
